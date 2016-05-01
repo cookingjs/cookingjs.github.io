@@ -29,6 +29,25 @@ cooking.add('loader.vue', {
 ### 如何使用不同版本的依赖？
 在你本地安装你需要的依赖即可，优先读取项目目录中的依赖。
 
+### 如果我需要用 Webpack 里的其它插件，是否需要在本地安装 Webpack 依赖？
+不需要。依旧是使用 `require('webpack')` 的方式就可以访问到 cooking 里的 Webpack 依赖，除非你想使用其它版本的 Webpack 才需要安装。例如
+```javascript
+var webpack = require('webpack')
+var cooking = require('cooking')
+
+cooking.set({
+  entry: './src/app.js'
+})
+
+cooking.add('plugin.banner', new webpack.BannerPlugin('/** comments **/'))
+```
+同时 cooking 里还内置了其它插件也可以直接 require 获取
+
+- extract-text-webpack-plugin
+- html-webpack-plugin
+
+
+
 ### 如何使用已经存在的 Webpack 配置文件？
 拿 vue-cli 的生成的 Webpack 项目举例，如果你不需要使用 vue-cli 生成项目提供的 server 直接使用 cooking 内置的话，在 `build/webpack.dev.conf.js` 加入 `devServer: true` 后执行
 ```bash

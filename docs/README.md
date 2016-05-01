@@ -19,4 +19,4 @@
  - [如何写插件](create-a-plugin.md)
  - [如何写脚手架](create-a-generator.md)
  - [如何写指令](create-a-command.md)
- - [一些问题](troubleshooting.md)
+ - [一些问题](faq.md)
