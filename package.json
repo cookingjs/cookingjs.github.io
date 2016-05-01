@@ -1,0 +1,31 @@
+{
+  "name": "cooking.github.io",
+  "version": "0.1.0",
+  "description": "cooking docs",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf _book && gitbook build ./docs ./_book",
+    "dev": "gitbook serve ./docs",
+    "deploy": "npm run build && gh-pages -b master -d ./_book"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cookingjs/cooking.github.io.git"
+  },
+  "keywords": [
+    "cooking",
+    "build",
+    "tool"
+  ],
+  "author": "qingwei-li <qingwei.li@ele.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cookingjs/cooking.github.io/issues"
+  },
+  "homepage": "https://github.com/cookingjs/cooking.github.io#readme",
+  "devDependencies": {
+    "gh-pages": "^0.11.0",
+    "gitbook-cli": "^2.1.3",
+    "gitbook-plugin-toc": "0.0.1"
+  }
+}

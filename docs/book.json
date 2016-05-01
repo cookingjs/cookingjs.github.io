@@ -1,0 +1,10 @@
+{
+  "title": "cooking",
+  "plugins": ["toc"],
+  "links": {
+    "sharing": {
+      "facebook": false,
+      "twitter": false
+    }
+  }
+}
