@@ -49,9 +49,9 @@
     <div class="book"
         data-level="4.4"
         data-chapter-title="一些问题"
-        data-filepath="troubleshooting.md"
+        data-filepath="faq.md"
         data-basepath="."
-        data-revision="Sun May 01 2016 23:08:44 GMT+0800 (CST)"
+        data-revision="Mon May 02 2016 00:06:05 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -307,10 +307,10 @@
             
         </li>
     
-        <li class="chapter active" data-level="4.4" data-path="troubleshooting.html">
+        <li class="chapter active" data-level="4.4" data-path="faq.html">
             
                 
-                    <a href="./troubleshooting.html">
+                    <a href="./faq.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -383,6 +383,22 @@ cooking.add(<span class="hljs-string">&apos;loader.vue&apos;</span>, {
 </code></pre>
 <h3 id="&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7248;&#x672C;&#x7684;&#x4F9D;&#x8D56;&#xFF1F;">&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7248;&#x672C;&#x7684;&#x4F9D;&#x8D56;&#xFF1F;</h3>
 <p>&#x5728;&#x4F60;&#x672C;&#x5730;&#x5B89;&#x88C5;&#x4F60;&#x9700;&#x8981;&#x7684;&#x4F9D;&#x8D56;&#x5373;&#x53EF;&#xFF0C;&#x4F18;&#x5148;&#x8BFB;&#x53D6;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x4E2D;&#x7684;&#x4F9D;&#x8D56;&#x3002;</p>
+<h3 id="&#x5982;&#x679C;&#x6211;&#x9700;&#x8981;&#x7528;-webpack-&#x91CC;&#x7684;&#x5176;&#x5B83;&#x63D2;&#x4EF6;&#xFF0C;&#x662F;&#x5426;&#x9700;&#x8981;&#x5728;&#x672C;&#x5730;&#x5B89;&#x88C5;-webpack-&#x4F9D;&#x8D56;&#xFF1F;">&#x5982;&#x679C;&#x6211;&#x9700;&#x8981;&#x7528; Webpack &#x91CC;&#x7684;&#x5176;&#x5B83;&#x63D2;&#x4EF6;&#xFF0C;&#x662F;&#x5426;&#x9700;&#x8981;&#x5728;&#x672C;&#x5730;&#x5B89;&#x88C5; Webpack &#x4F9D;&#x8D56;&#xFF1F;</h3>
+<p>&#x4E0D;&#x9700;&#x8981;&#x3002;&#x4F9D;&#x65E7;&#x662F;&#x4F7F;&#x7528; <code>require(&apos;webpack&apos;)</code> &#x7684;&#x65B9;&#x5F0F;&#x5C31;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x5230; cooking &#x91CC;&#x7684; Webpack &#x4F9D;&#x8D56;&#xFF0C;&#x9664;&#x975E;&#x4F60;&#x60F3;&#x4F7F;&#x7528;&#x5176;&#x5B83;&#x7248;&#x672C;&#x7684; Webpack &#x624D;&#x9700;&#x8981;&#x5B89;&#x88C5;&#x3002;&#x4F8B;&#x5982;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> webpack = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;webpack&apos;</span>)
+<span class="hljs-keyword">var</span> cooking = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;cooking&apos;</span>)
+
+cooking.set({
+  entry: <span class="hljs-string">&apos;./src/app.js&apos;</span>
+})
+
+cooking.add(<span class="hljs-string">&apos;plugin.banner&apos;</span>, <span class="hljs-keyword">new</span> webpack.BannerPlugin(<span class="hljs-string">&apos;/** comments **/&apos;</span>))
+</code></pre>
+<p>&#x540C;&#x65F6; cooking &#x91CC;&#x8FD8;&#x5185;&#x7F6E;&#x4E86;&#x5176;&#x5B83;&#x63D2;&#x4EF6;&#x4E5F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5; require &#x83B7;&#x53D6;</p>
+<ul>
+<li>extract-text-webpack-plugin</li>
+<li>html-webpack-plugin</li>
+</ul>
 <h3 id="&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;-webpack-&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF1F;">&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684; Webpack &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF1F;</h3>
 <p>&#x62FF; vue-cli &#x7684;&#x751F;&#x6210;&#x7684; Webpack &#x9879;&#x76EE;&#x4E3E;&#x4F8B;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x4E0D;&#x9700;&#x8981;&#x4F7F;&#x7528; vue-cli &#x751F;&#x6210;&#x9879;&#x76EE;&#x63D0;&#x4F9B;&#x7684; server &#x76F4;&#x63A5;&#x4F7F;&#x7528; cooking &#x5185;&#x7F6E;&#x7684;&#x8BDD;&#xFF0C;&#x5728; <code>build/webpack.dev.conf.js</code> &#x52A0;&#x5165; <code>devServer: true</code> &#x540E;&#x6267;&#x884C;</p>
 <pre><code class="lang-bash">$ cooking watch -c build/webpack.dev.conf.js
