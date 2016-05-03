@@ -156,11 +156,11 @@ HTML 模板文件，使用 [html-webpack-plugin](https://github.com/ampedandwire
 }
 ```
 
-## umdName
-如果设置 `format: 'umd'` 就必须设置该项
+## moduleName
+如果设置 `format` 为 'umd' 或 'amd' 就必须设置该项
 ```javascript
 {
-  umdName: ''
+  moduleName: ''
 }
 ```
 
