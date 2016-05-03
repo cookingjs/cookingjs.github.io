@@ -71,7 +71,11 @@ $ cooking build -c webpack.config.js
 
 - -p --progress
 
-显示构建进度条
+显示构建进度条。
+
+- --no-color
+
+控制台输出信息不显示颜色。
 
 ## `import`
 安装插件[^1]、指令
