@@ -69,6 +69,10 @@ $ cooking build
 $ cooking build -c webpack.config.js
 ```
 
+- -p --progress
+
+显示构建进度条
+
 ## `import`
 安装插件[^1]、指令
 ```bash
