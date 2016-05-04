@@ -20,3 +20,5 @@
  - [如何写脚手架](create-a-generator.md)
  - [如何写指令](create-a-command.md)
  - [一些问题](faq.md)
+
+**cooking 只能使用 NPM 3 及其以上的版本安装*
