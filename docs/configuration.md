@@ -4,6 +4,15 @@ cooking 包装了一些 Webpack 配置项，所提供的配置参数满足多数
 
 <!-- toc -->
 
+
+## use
+生产上所需要的依赖包，例如 vue、react、angular 相关的依赖，非 devDependencies
+```javascript
+{
+  use: 'vue'
+}
+```
+
 ## entry
 与 Webpack 的 [entry](http://webpack.github.io/docs/configuration.html#entry) 一致，入口文件。接受 String|Array|Object 类型
 ```javascript
@@ -212,7 +221,7 @@ Webpack 的 [chunk](http://webpack.github.io/docs/list-of-plugins.html#commonsch
 ```
 
 ## extends
-cooking 默认只提供了 Babel 和 基本 loader，如果我们想开发 vue 项目并且构建前自动 lint 那么就要使用 cooking 的扩展配置和依赖的功能。例如下方将引入 [cooking-vue](https://github.com/cookingjs/cooking-vue) 和 [cooking-lint](https://github.com/cookingjs/cooking-lint) 插件（如果本地未安装会自动下载）。vue 插件做的事是配置 vue-loader 以及提供 vue, vuex, vue-router 等相关依赖；lint 插件会提供 eslint，几个标准的 eslint-config，并配置 eslint-loader。
+cooking 默认只提供了 Babel 和 基本 loader，如果我们想开发 vue 项目并且构建前自动 lint 那么就要使用 cooking 的扩展配置和依赖的功能。例如下方将引入 [cooking-vue](https://github.com/cookingjs/cooking-vue) 和 [cooking-lint](https://github.com/cookingjs/cooking-lint) 插件（如果本地未安装会自动下载）。vue 插件做的事是配置 vue-loader；lint 插件会提供 eslint，几个标准的 eslint-config，并配置 eslint-loader。
 
 ```javascript
 {
