@@ -53,7 +53,7 @@
         data-chapter-title="CLI"
         data-filepath="cli.md"
         data-basepath="."
-        data-revision="Wed May 04 2016 11:25:45 GMT+0800 (CST)"
+        data-revision="Wed May 04 2016 14:50:33 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -251,6 +251,21 @@
             
         </li>
     
+        <li class="chapter " data-level="3.4" data-path="list-of-package.html">
+            
+                
+                    <a href="./list-of-package.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        依赖包
+                    </a>
+            
+            
+        </li>
+    
 
             </ul>
             
@@ -309,14 +324,21 @@
             
         </li>
     
-        <li class="chapter " data-level="4.4" data-path="faq.html">
+        <li class="chapter " data-level="4.4" data-path="create-a-package.html">
+            
+            <span><b>4.4.</b> 如何写依赖包</span>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="faq.html">
             
                 
                     <a href="./faq.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>4.4.</b>
+                            <b>4.5.</b>
                         
                         一些问题
                     </a>
@@ -453,6 +475,12 @@ $ cooking import lint-cli
 <pre><code class="lang-bash">$ cooking import vue -t
 </code></pre>
 <ul>
+<li>-p --package</li>
+</ul>
+<p>&#x5B89;&#x88C5;&#x4F9D;&#x8D56;&#x5305;</p>
+<pre><code class="lang-bash">$ cooking import vue -p
+</code></pre>
+<ul>
 <li>-r --registry</li>
 </ul>
 <p>&#x6307;&#x5B9A;&#x4E0B;&#x8F7D;&#x955C;&#x50CF;&#xFF0C;&#x5982;&#x679C;&#x914D;&#x7F6E;&#x4E86; config:registry &#x4F1A;&#x4F7F;&#x7528;&#x914D;&#x7F6E;&#x4E2D;&#x7684;&#x955C;&#x50CF;</p>
@@ -469,6 +497,7 @@ $ cooking update lint-cli
 <ul>
 <li>-t -template</li>
 <li>-r --registry</li>
+<li>-p --package</li>
 </ul>
 <p>&#x540C; <code>import</code></p>
 <h2 id="remove"><code>remove</code></h2>
@@ -481,6 +510,7 @@ $ cooking remove lint-cli
 </code></pre>
 <ul>
 <li>-t -template</li>
+<li>-p --package</li>
 </ul>
 <p>&#x540C; <code>import</code></p>
 <h2 id="list"><code>list</code></h2>
