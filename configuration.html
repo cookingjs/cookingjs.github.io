@@ -53,7 +53,7 @@
         data-chapter-title="配置参数"
         data-filepath="configuration.md"
         data-basepath="."
-        data-revision="Sat May 07 2016 10:16:01 GMT+0800 (CST)"
+        data-revision="Tue May 10 2016 13:56:45 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -456,6 +456,14 @@
 <span class="hljs-comment">// &#x6307;&#x5B9A;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x751F;&#x6210; index.html &#x6587;&#x4EF6;</span>
 {
   template: <span class="hljs-string">&apos;./src/index.template.html&apos;</span>
+}
+
+<span class="hljs-comment">// &#x591A;&#x9875;&#x9762;&#x6307;&#x5B9A;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;</span>
+{
+  template: {
+    <span class="hljs-string">&apos;index.html&apos;</span>: <span class="hljs-string">&apos;./src/index.template.html&apos;</span>,
+    <span class="hljs-string">&apos;admin.html&apos;</span>: <span class="hljs-string">&apos;./src/admin.template.html&apos;</span>
+  }
 }
 
 <span class="hljs-comment">// &#x9700;&#x8981;&#x4F7F;&#x7528; html-webpack-plugin &#x989D;&#x5916;&#x7684;&#x53C2;&#x6570;</span>
