@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/cookingjs/cookingjs.github.io/issues"
   },
-  "homepage": "https://github.com/cookingjs/cookingjs.github.io#readme",
+  "homepage": "http://cookingjs.github.io",
   "devDependencies": {
     "gh-pages": "^0.11.0",
     "gitbook-cli": "^2.1.3",
