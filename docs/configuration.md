@@ -56,6 +56,14 @@ HTML 模板文件，使用 [html-webpack-plugin](https://github.com/ampedandwire
   template: './src/index.template.html'
 }
 
+// 多页面指定模板文件相对路径
+{
+  template: {
+    'index.html': './src/index.template.html',
+    'admin.html': './src/admin.template.html'
+  }
+}
+
 // 需要使用 html-webpack-plugin 额外的参数
 {
   template: {
