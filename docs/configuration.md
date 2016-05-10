@@ -202,10 +202,10 @@ Webpack 的 [chunk](http://webpack.github.io/docs/list-of-plugins.html#commonsch
 {
   chunk: {
     'chunk-vendor': {
-      name: 'commons',
+      name: 'commons', // 不指定默认使用键名
       // (the commons chunk name)
 
-      filename: 'commons.js',
+      filename: 'commons.js', // 不指定默认根据键名生成（生产模式下带 hash）
       // (the filename of the commons chunk)
 
       // minChunks: 3,
