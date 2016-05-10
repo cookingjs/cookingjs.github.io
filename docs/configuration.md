@@ -69,8 +69,13 @@ HTML 模板文件，使用 [html-webpack-plugin](https://github.com/ampedandwire
   template: {
     'test.html': {
       title: 'Test Project',
-      filename: 'test.html',
+      filename: 'test.html', // 不指定默认使用键名
       template: 'src/assets/test.html',
+      inject: 'body'
+    },
+    'app.html': {
+      title: 'Test Project',
+      template: 'src/assets/app.html',
       inject: 'body'
     }
   }
