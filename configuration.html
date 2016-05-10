@@ -53,7 +53,7 @@
         data-chapter-title="配置参数"
         data-filepath="configuration.md"
         data-basepath="."
-        data-revision="Tue May 10 2016 13:56:45 GMT+0800 (CST)"
+        data-revision="Tue May 10 2016 14:19:21 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -471,8 +471,13 @@
   template: {
     <span class="hljs-string">&apos;test.html&apos;</span>: {
       title: <span class="hljs-string">&apos;Test Project&apos;</span>,
-      filename: <span class="hljs-string">&apos;test.html&apos;</span>,
+      filename: <span class="hljs-string">&apos;test.html&apos;</span>, <span class="hljs-comment">// &#x4E0D;&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;&#x952E;&#x540D;</span>
       template: <span class="hljs-string">&apos;src/assets/test.html&apos;</span>,
+      inject: <span class="hljs-string">&apos;body&apos;</span>
+    },
+    <span class="hljs-string">&apos;app.html&apos;</span>: {
+      title: <span class="hljs-string">&apos;Test Project&apos;</span>,
+      template: <span class="hljs-string">&apos;src/assets/app.html&apos;</span>,
       inject: <span class="hljs-string">&apos;body&apos;</span>
     }
   }
