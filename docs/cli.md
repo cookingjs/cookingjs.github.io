@@ -59,6 +59,11 @@ $ cooking watch
 $ cooking watch -c webpack.config.js
 ```
 
+接受传入文件数组，用逗号分隔
+```bash
+$ cooking watch -c cooking.desktop.js,cooking.mobile.js
+```
+
 ### `build`
 生产模式，生成最终的部署代码
 ```bash
@@ -70,6 +75,11 @@ $ cooking build
 默认读取 `cooking.conf.js` 配置也指定配置文件
 ```bash
 $ cooking build -c webpack.config.js
+```
+
+接受传入文件数组，用逗号分隔
+```bash
+$ cooking watch -c cooking.desktop.js,cooking.mobile.js
 ```
 
 - -p --progress
