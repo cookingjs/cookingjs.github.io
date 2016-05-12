@@ -2,14 +2,14 @@
 
 #### 用 Lint 是给出的提示是 Warn 而不是 Error？
 
-ESLint 默认是触发 Error，但这将会打断 Webpack 的 build[^1]（至少我不希望如此），解决方法是去掉的 NoErrorsPlugin，然而这样又不能保证构建出错不自动中断；另一种方法是把 ESLint 触发 Error 改成 Warn。
+ESLint 默认是触发 Error，但这将会打断 webpack 的 build[^1]（至少我不希望如此），解决方法是去掉的 NoErrorsPlugin，然而这样又不能保证构建出错不自动中断；另一种方法是把 ESLint 触发 Error 改成 Warn。
 ```javascript
 eslint: {
   emitWarning: true
 }
 ```
 
-### loader 能不能用简写？
+#### loader 能不能用简写？
 如果需要增加新 loader, 或者使用自己的 webpack 配置, 请将 loader 改成完整名字而不是简写。因为用户本地安装了 vue 依赖, 查找路径的顺序[^2]问题会把用户的 vue 模块当作 vue-loader 使用导致报错。[^3]
 
 ```javascript
@@ -26,11 +26,11 @@ cooking.add('loader.vue', {
 })
 ```
 
-### 如何使用不同版本的依赖？
+#### 如何使用不同版本的依赖？
 在你本地安装你需要的依赖即可，优先读取项目目录中的依赖。
 
-### 如果我需要用 Webpack 里的其它插件，是否需要在本地安装 Webpack 依赖？
-不需要。依旧是使用 `require('webpack')` 的方式就可以访问到 cooking 里的 Webpack 依赖，除非你想使用其它版本的 Webpack 才需要安装。例如
+#### 如果我需要用 webpack 里的其它插件，是否需要在本地安装 webpack 依赖？
+不需要。依旧是使用 `require('webpack')` 的方式就可以访问到 cooking 里的 webpack 依赖，除非你想使用其它版本的 webpack 才需要安装。例如
 ```javascript
 var webpack = require('webpack')
 var cooking = require('cooking')
@@ -48,13 +48,13 @@ cooking.add('plugin.banner', new webpack.BannerPlugin('/** comments **/'))
 
 
 
-### 如何使用已经存在的 Webpack 配置文件？
-拿 vue-cli 的生成的 Webpack 项目举例，如果你不需要使用 vue-cli 生成项目提供的 server 直接使用 cooking 内置的话，在 `build/webpack.dev.conf.js` 加入 `devServer: true` 后执行
+#### 如何使用已经存在的 webpack 配置文件？
+拿 vue-cli 的生成的 webpack 项目举例，如果你不需要使用 vue-cli 生成项目提供的 server 直接使用 cooking 内置的话，在 `build/webpack.dev.conf.js` 加入 `devServer: true` 后执行
 ```bash
 $ cooking watch -c build/webpack.dev.conf.js
 ```
 
-### Babel 和 ESLint 的配置文件
+#### Babel 和 ESLint 的配置文件
 虽然提供 Babel 相关依赖，但是并没有给默认配置，需要在项目下面创建一个 .babelrc 和 .eslintrc 文件，内置的依赖可以配置成这样
 
 .babelrc

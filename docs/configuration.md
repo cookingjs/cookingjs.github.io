@@ -1,6 +1,6 @@
 
 # 配置参数
-cooking 包装了一些 Webpack 配置项，所提供的配置参数满足多数项目的基本需求。
+cooking 包装了一些 webpack 配置项，所提供的配置参数满足多数项目的基本需求。
 
 <!-- toc -->
 
@@ -14,7 +14,7 @@ cooking 包装了一些 Webpack 配置项，所提供的配置参数满足多数
 ```
 
 ## entry
-与 Webpack 的 [entry](http://webpack.github.io/docs/configuration.html#entry) 一致，入口文件。接受 String|Array|Object 类型
+与 webpack 的 [entry](http://webpack.github.io/docs/configuration.html#entry) 一致，入口文件。接受 String|Array|Object 类型
 ```javascript
 // 单个入口文件
 {
@@ -53,30 +53,28 @@ HTML 模板文件，使用 [html-webpack-plugin](https://github.com/ampedandwire
 
 // 指定模板文件相对路径，生成 index.html 文件
 {
-  template: './src/index.template.html'
+  template: './src/index.tpl'
 }
 
 // 多页面指定模板文件相对路径
 {
   template: {
-    'index.html': './src/index.template.html',
-    'admin.html': './src/admin.template.html'
+    'index.html': './src/index.tpl',
+    'admin.html': './src/admin.tpl'
   }
 }
 
 // 需要使用 html-webpack-plugin 额外的参数
 {
   template: {
-    'test.html': {
-      title: 'Test Project',
+    'admin.html': {
       filename: 'test.html', // 不指定默认使用键名
-      template: 'src/assets/test.html',
-      inject: 'body'
+      chunks: ['admin', 'vendor'], // 不同页面使用不同的 chunk
+      template: 'src/assets/test.tpl',
     },
     'app.html': {
-      title: 'Test Project',
-      template: 'src/assets/app.html',
-      inject: 'body'
+      template: 'src/assets/app.tpl',
+      chunks: ['app', 'vendor']
     }
   }
 }
@@ -171,7 +169,7 @@ HTML 模板文件，使用 [html-webpack-plugin](https://github.com/ampedandwire
 ```
 
 ## format
-可指定模块的输出类型。接受 amd|cjs|umd|var，其中 cjs 会被翻译成  Webpack 的 commonjs2
+可指定模块的输出类型。接受 amd|cjs|umd|var，其中 cjs 会被翻译成  webpack 的 commonjs2
 ```javascript
 {
   format: 'var'
@@ -187,7 +185,7 @@ HTML 模板文件，使用 [html-webpack-plugin](https://github.com/ampedandwire
 ```
 
 ## chunk
-Webpack 的 [chunk](http://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin) 配置的简化。接受 String|Object。可以把公共的代码部分提取出去，默认为空
+webpack 的 [chunk](http://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin) 配置的简化。接受 String|Object。可以把公共的代码部分提取出去，默认为空
 ```javascript
 {
   entry: {

@@ -6,5 +6,6 @@
 - [sass](https://github.com/cookingjs/cooking-sass) - sass 配置
 - [postcss](https://github.com/cookingjs/cooking-postcss) - postcss-loader, 内置 cssnext 等
 - [lint](https://github.com/cookingjs/cooking-lint) - 使用 ESLint
+- [saladcss](https://github.com/cookingjs/cooking-saladcss) - 更好用的 CSS 预处理插件 [postcss-salad](http://elemefe.github.io/postcss-salad)
 
 更多插件可以在 https://github.com/cookingjs 找到，同时欢迎你来开发新的插件。

@@ -5,7 +5,7 @@
   - [介绍](intro.md)
   - [例子](example.md)
   - [快速上手](quickstart.md)
-- API
+- 使用
  - [配置参数](configuration.md)
  - [方法](nodejs-api.md)
  - [CLI](cli.md)
@@ -15,9 +15,10 @@
  - [指令](list-of-commands.md)
  - [依赖包](list-of-package.md)
 
-- FAQ
+- 教程
  - [如何写插件](create-a-plugin.md)
  - [如何写脚手架](create-a-generator.md)
- - [如何写指令](create-a-command.md)
+ - [如何写指令]()
  - [如何写依赖包](create-a-package.md)
+ - [迁移指南](migration-guide.md)
  - [一些问题](faq.md)

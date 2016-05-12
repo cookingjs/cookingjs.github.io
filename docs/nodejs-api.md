@@ -1,5 +1,5 @@
 # 方法
-Webpack 的配置中经常会去改动的是 loaders 和 plugin，不过它们传入的是数组类型不方便修改或覆盖。所以这里还提供了新的方法给我们操作配置。
+webpack 的配置中经常会去改动的是 loaders 和 plugin，不过它们传入的是数组类型不方便修改或覆盖。所以这里还提供了新的方法给我们操作配置。
 <!-- toc -->
 
 ## set(options: Object)
@@ -13,7 +13,7 @@ cooking.set({
 })
 ```
 
-## add(path: String, option: *)
+## add(path: String, option: Any)
 如果我们想增加（或是覆盖） loader 或者 plugin 就可以使用该方法。
 ```javascript
 cooking.add('loader.es6', {
@@ -82,11 +82,11 @@ cooking.remove('loader.json')
 - plugin.ExtractText
 
 ## resolve()
-返回最终的 Webpack 配置。loader 和 plugin 的配置在 cooking 里是以 Object 的形式存储的，resolve 会将其转换成数组
+返回最终的 webpack 配置。loader 和 plugin 的配置在 cooking 里是以 Object 的形式存储的，resolve 会将其转换成数组
 ```javascript
 var config = cooking.resolve()
 
-// 还可以进一步去修改 Webpack 配置，例如增加一个后缀
+// 还可以进一步去修改 webpack 配置，例如增加一个后缀
 config.resolve.extensions.push('.json')
 
 module.exports = config

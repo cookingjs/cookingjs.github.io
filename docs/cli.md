@@ -3,7 +3,9 @@
 
 <!-- toc -->
 
-## `config`
+## 初始化
+
+### `config`
 配置一些信息能方便的使用 cooking
 ```bash
 # 查看配置
@@ -30,20 +32,21 @@ $ cooking config <option> [value]
 }
 ```
 
-## `create <project-name> [generator-name]`
+### `create <project-name> [generator-name]`
 创建项目目录并执行脚手架
 ```bash
 # 创建一个 my-project 目录并运行 vue 的脚手架
 $ cooking my-project vue
 ```
 
-## `init [generator-name]`
+### `init [generator-name]`
 ```bash
 # 运行脚手架
 $ cooking init vue
 ```
 
-## `watch`
+## 开发
+### `watch`
 启动开发（调试）模式
 ```bash
 $ cooking watch
@@ -56,7 +59,7 @@ $ cooking watch
 $ cooking watch -c webpack.config.js
 ```
 
-## `build`
+### `build`
 生产模式，生成最终的部署代码
 ```bash
 $ cooking build
@@ -77,8 +80,10 @@ $ cooking build -c webpack.config.js
 
 控制台输出信息不显示颜色。
 
-## `import`
-安装插件[^1]、指令
+## 插件
+
+### `import`
+安装插件[^1]、指令、脚手架
 ```bash
 # 安装插件
 $ cooking import vue
@@ -108,7 +113,7 @@ $ cooking import vue -p
 $ cooking import vue -r https://registry.npm.taobao.org
 ```
 
-## `update`
+### `update`
 更新插件、指令
 ```bash
 # 更新插件
@@ -125,7 +130,7 @@ $ cooking update lint-cli
 同 `import`
 
 
-## `remove`
+### `remove`
 
 卸载插件、指令
 ```bash
@@ -142,7 +147,7 @@ $ cooking remove lint-cli
 同 `import`
 
 
-## `list`
+### `list`
 
 查看安装的指令、插件、脚手架列表
 ```bash
