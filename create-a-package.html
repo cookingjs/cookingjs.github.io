@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="./faq.html" />
+    <link rel="next" href="./migration-guide.html" />
     
     
-    <link rel="prev" href="./create-a-command.html" />
+    <link rel="prev" href="./create-a-generator.html" />
     
 
         
@@ -53,7 +53,7 @@
         data-chapter-title="如何写依赖包"
         data-filepath="create-a-package.md"
         data-basepath="."
-        data-revision="Tue May 10 2016 14:57:43 GMT+0800 (CST)"
+        data-revision="Thu May 12 2016 18:22:51 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -142,7 +142,7 @@
     
         <li class="chapter " data-level="2" >
             
-            <span><b>2.</b> API</span>
+            <span><b>2.</b> 使用</span>
             
             
             <ul class="articles">
@@ -273,7 +273,7 @@
     
         <li class="chapter " data-level="4" >
             
-            <span><b>4.</b> FAQ</span>
+            <span><b>4.</b> 教程</span>
             
             
             <ul class="articles">
@@ -309,17 +309,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.3" data-path="create-a-command.html">
+        <li class="chapter " data-level="4.3" >
             
-                
-                    <a href="./create-a-command.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.3.</b>
-                        
-                        如何写指令
-                    </a>
+            <span><b>4.3.</b> 如何写指令</span>
             
             
         </li>
@@ -339,14 +331,29 @@
             
         </li>
     
-        <li class="chapter " data-level="4.5" data-path="faq.html">
+        <li class="chapter " data-level="4.5" data-path="migration-guide.html">
+            
+                
+                    <a href="./migration-guide.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        迁移指南
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="faq.html">
             
                 
                     <a href="./faq.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>4.5.</b>
+                            <b>4.6.</b>
                         
                         一些问题
                     </a>
@@ -393,6 +400,15 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="&#x5982;&#x4F55;&#x5199;&#x4F9D;&#x8D56;&#x5305;">&#x5982;&#x4F55;&#x5199;&#x4F9D;&#x8D56;&#x5305;</h1>
+<p>&#x8BBE;&#x7F6E;&#x4F9D;&#x8D56;&#x5305;&#x7684;&#x76EE;&#x7684;&#x662F;&#x4E3A;&#x4E86;&#x907F;&#x514D;&#x6BCF;&#x6B21;&#x90FD;&#x9700;&#x8981;&#x5B89;&#x88C5;&#x6240;&#x7528;&#x6846;&#x67B6;&#x53CA;&#x5176;&#x76F8;&#x5173;&#x914D;&#x5957;&#x5DE5;&#x5177;&#xFF0C;&#x6240;&#x4EE5;&#x53EA;&#x9700;&#x8981;&#x914D;&#x7F6E;&#x4E0B; package.json &#x6587;&#x4EF6;&#x4E2D;&#x7684; dependencies &#x5373;&#x53EF;&#x3002;cooking &#x5728;&#x76D1;&#x6D4B;&#x5230;&#x4F7F;&#x7528;&#x4E86; use &#x5B57;&#x6BB5;&#x4F1A;&#x4E0B;&#x8F7D;&#x5BF9;&#x5E94;&#x4F9D;&#x8D56;&#x5305;&#x7684;&#x76F8;&#x5173;&#x4F9D;&#x8D56;&#x3002;&#x7528;&#x6237;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x672C;&#x5730;&#x9879;&#x76EE;&#x5B89;&#x88C5;&#x6307;&#x5B9A;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x4F18;&#x5148;&#x8BFB;&#x53D6;&#x7528;&#x6237;&#x672C;&#x5730;&#x7684;&#x4F9D;&#x8D56;&#x3002;</p>
+<p>package.json</p>
+<pre><code class="lang-json"><span class="hljs-string">&quot;dependencies&quot;</span>: {
+  <span class="hljs-string">&quot;vue&quot;</span>: <span class="hljs-string">&quot;^1.0.21&quot;</span>,
+  <span class="hljs-string">&quot;vue-resource&quot;</span>: <span class="hljs-string">&quot;^0.7.0&quot;</span>,
+  <span class="hljs-string">&quot;vue-router&quot;</span>: <span class="hljs-string">&quot;^0.7.13&quot;</span>,
+  <span class="hljs-string">&quot;vuex&quot;</span>: <span class="hljs-string">&quot;^0.6.3&quot;</span>
+}
+</code></pre>
 <p>&#x53C2;&#x8003; <a href="https://github.com/cookingjs/cooking-package-vue" target="_blank">vue</a></p>
 
                     
@@ -404,10 +420,10 @@
         </div>
 
         
-        <a href="./create-a-command.html" class="navigation navigation-prev " aria-label="Previous page: 如何写指令"><i class="fa fa-angle-left"></i></a>
+        <a href="./create-a-generator.html" class="navigation navigation-prev " aria-label="Previous page: 如何写脚手架"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="./faq.html" class="navigation navigation-next " aria-label="Next page: 一些问题"><i class="fa fa-angle-right"></i></a>
+        <a href="./migration-guide.html" class="navigation navigation-next " aria-label="Next page: 迁移指南"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

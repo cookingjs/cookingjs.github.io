@@ -53,7 +53,7 @@
         data-chapter-title="方法"
         data-filepath="nodejs-api.md"
         data-basepath="."
-        data-revision="Tue May 10 2016 14:57:43 GMT+0800 (CST)"
+        data-revision="Thu May 12 2016 18:22:51 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -142,7 +142,7 @@
     
         <li class="chapter " data-level="2" >
             
-            <span><b>2.</b> API</span>
+            <span><b>2.</b> 使用</span>
             
             
             <ul class="articles">
@@ -273,7 +273,7 @@
     
         <li class="chapter " data-level="4" >
             
-            <span><b>4.</b> FAQ</span>
+            <span><b>4.</b> 教程</span>
             
             
             <ul class="articles">
@@ -309,17 +309,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.3" data-path="create-a-command.html">
+        <li class="chapter " data-level="4.3" >
             
-                
-                    <a href="./create-a-command.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.3.</b>
-                        
-                        如何写指令
-                    </a>
+            <span><b>4.3.</b> 如何写指令</span>
             
             
         </li>
@@ -339,14 +331,29 @@
             
         </li>
     
-        <li class="chapter " data-level="4.5" data-path="faq.html">
+        <li class="chapter " data-level="4.5" data-path="migration-guide.html">
+            
+                
+                    <a href="./migration-guide.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        迁移指南
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="faq.html">
             
                 
                     <a href="./faq.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>4.5.</b>
+                            <b>4.6.</b>
                         
                         一些问题
                     </a>
@@ -393,11 +400,11 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="&#x65B9;&#x6CD5;">&#x65B9;&#x6CD5;</h1>
-<p>Webpack &#x7684;&#x914D;&#x7F6E;&#x4E2D;&#x7ECF;&#x5E38;&#x4F1A;&#x53BB;&#x6539;&#x52A8;&#x7684;&#x662F; loaders &#x548C; plugin&#xFF0C;&#x4E0D;&#x8FC7;&#x5B83;&#x4EEC;&#x4F20;&#x5165;&#x7684;&#x662F;&#x6570;&#x7EC4;&#x7C7B;&#x578B;&#x4E0D;&#x65B9;&#x4FBF;&#x4FEE;&#x6539;&#x6216;&#x8986;&#x76D6;&#x3002;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x65B0;&#x7684;&#x65B9;&#x6CD5;&#x7ED9;&#x6211;&#x4EEC;&#x64CD;&#x4F5C;&#x914D;&#x7F6E;&#x3002;</p>
+<p>webpack &#x7684;&#x914D;&#x7F6E;&#x4E2D;&#x7ECF;&#x5E38;&#x4F1A;&#x53BB;&#x6539;&#x52A8;&#x7684;&#x662F; loaders &#x548C; plugin&#xFF0C;&#x4E0D;&#x8FC7;&#x5B83;&#x4EEC;&#x4F20;&#x5165;&#x7684;&#x662F;&#x6570;&#x7EC4;&#x7C7B;&#x578B;&#x4E0D;&#x65B9;&#x4FBF;&#x4FEE;&#x6539;&#x6216;&#x8986;&#x76D6;&#x3002;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x65B0;&#x7684;&#x65B9;&#x6CD5;&#x7ED9;&#x6211;&#x4EEC;&#x64CD;&#x4F5C;&#x914D;&#x7F6E;&#x3002;</p>
 <!-- toc -->
 <ul>
 <li><a href="#setoptions-object">set(options: Object)</a></li>
-<li><a href="#addpath-string-option">add(path: String, option: *)</a></li>
+<li><a href="#addpath-string-option-any">add(path: String, option: Any)</a></li>
 <li><a href="#removepath-string">remove(path: String)</a></li>
 <li><a href="#resolve">resolve()</a></li>
 </ul>
@@ -411,7 +418,7 @@ cooking.set({
   devServer: <span class="hljs-literal">true</span>
 })
 </code></pre>
-<h2 id="addpath-string-option-">add(path: String, option: *)</h2>
+<h2 id="addpath-string-option-any">add(path: String, option: Any)</h2>
 <p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x60F3;&#x589E;&#x52A0;&#xFF08;&#x6216;&#x662F;&#x8986;&#x76D6;&#xFF09; loader &#x6216;&#x8005; plugin &#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;&#x3002;</p>
 <pre><code class="lang-javascript">cooking.add(<span class="hljs-string">&apos;loader.es6&apos;</span>, {
   test: <span class="hljs-regexp">/\.es6$/</span>,
@@ -472,10 +479,10 @@ cooking.remove(<span class="hljs-string">&apos;loader.json&apos;</span>)
 <li>plugin.ExtractText</li>
 </ul>
 <h2 id="resolve">resolve()</h2>
-<p>&#x8FD4;&#x56DE;&#x6700;&#x7EC8;&#x7684; Webpack &#x914D;&#x7F6E;&#x3002;loader &#x548C; plugin &#x7684;&#x914D;&#x7F6E;&#x5728; cooking &#x91CC;&#x662F;&#x4EE5; Object &#x7684;&#x5F62;&#x5F0F;&#x5B58;&#x50A8;&#x7684;&#xFF0C;resolve &#x4F1A;&#x5C06;&#x5176;&#x8F6C;&#x6362;&#x6210;&#x6570;&#x7EC4;</p>
+<p>&#x8FD4;&#x56DE;&#x6700;&#x7EC8;&#x7684; webpack &#x914D;&#x7F6E;&#x3002;loader &#x548C; plugin &#x7684;&#x914D;&#x7F6E;&#x5728; cooking &#x91CC;&#x662F;&#x4EE5; Object &#x7684;&#x5F62;&#x5F0F;&#x5B58;&#x50A8;&#x7684;&#xFF0C;resolve &#x4F1A;&#x5C06;&#x5176;&#x8F6C;&#x6362;&#x6210;&#x6570;&#x7EC4;</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> config = cooking.resolve()
 
-<span class="hljs-comment">// &#x8FD8;&#x53EF;&#x4EE5;&#x8FDB;&#x4E00;&#x6B65;&#x53BB;&#x4FEE;&#x6539; Webpack &#x914D;&#x7F6E;&#xFF0C;&#x4F8B;&#x5982;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x540E;&#x7F00;</span>
+<span class="hljs-comment">// &#x8FD8;&#x53EF;&#x4EE5;&#x8FDB;&#x4E00;&#x6B65;&#x53BB;&#x4FEE;&#x6539; webpack &#x914D;&#x7F6E;&#xFF0C;&#x4F8B;&#x5982;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x540E;&#x7F00;</span>
 config.resolve.extensions.push(<span class="hljs-string">&apos;.json&apos;</span>)
 
 <span class="hljs-built_in">module</span>.exports = config

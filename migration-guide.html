@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>如何写指令 | cooking</title>
+        <title>迁移指南 | cooking</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="./create-a-package.html" />
+    <link rel="next" href="./faq.html" />
     
     
-    <link rel="prev" href="./create-a-generator.html" />
+    <link rel="prev" href="./create-a-package.html" />
     
 
         
@@ -49,11 +49,11 @@
         
         
     <div class="book"
-        data-level="4.3"
-        data-chapter-title="如何写指令"
-        data-filepath="create-a-command.md"
+        data-level="4.5"
+        data-chapter-title="迁移指南"
+        data-filepath="migration-guide.md"
         data-basepath="."
-        data-revision="Tue May 10 2016 14:57:43 GMT+0800 (CST)"
+        data-revision="Thu May 12 2016 18:22:51 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -142,7 +142,7 @@
     
         <li class="chapter " data-level="2" >
             
-            <span><b>2.</b> API</span>
+            <span><b>2.</b> 使用</span>
             
             
             <ul class="articles">
@@ -273,7 +273,7 @@
     
         <li class="chapter " data-level="4" >
             
-            <span><b>4.</b> FAQ</span>
+            <span><b>4.</b> 教程</span>
             
             
             <ul class="articles">
@@ -309,17 +309,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="4.3" data-path="create-a-command.html">
+        <li class="chapter " data-level="4.3" >
             
-                
-                    <a href="./create-a-command.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.3.</b>
-                        
-                        如何写指令
-                    </a>
+            <span><b>4.3.</b> 如何写指令</span>
             
             
         </li>
@@ -339,14 +331,29 @@
             
         </li>
     
-        <li class="chapter " data-level="4.5" data-path="faq.html">
+        <li class="chapter active" data-level="4.5" data-path="migration-guide.html">
+            
+                
+                    <a href="./migration-guide.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        迁移指南
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="faq.html">
             
                 
                     <a href="./faq.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>4.5.</b>
+                            <b>4.6.</b>
                         
                         一些问题
                     </a>
@@ -392,8 +399,120 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="&#x5982;&#x4F55;&#x5199;&#x6307;&#x4EE4;">&#x5982;&#x4F55;&#x5199;&#x6307;&#x4EE4;</h1>
-<p>&#x5F85;&#x5B8C;&#x5584;</p>
+                        <h1 id="&#x8FC1;&#x79FB;&#x6307;&#x5357;">&#x8FC1;&#x79FB;&#x6307;&#x5357;</h1>
+<p>&#x4EE5; vue-cli &#x521B;&#x5EFA;&#x7684;&#x9879;&#x76EE;&#x4E3E;&#x4F8B;&#x3002;</p>
+<h2 id="&#x5F00;&#x59CB;">&#x5F00;&#x59CB;</h2>
+<p>&#x65B0;&#x5EFA;&#x4E00;&#x4E2A; cooking.conf.js &#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x6DFB;&#x52A0;&#x57FA;&#x672C;&#x914D;&#x7F6E;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> cooking = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;cooking&apos;</span>)
+
+cooking.set({
+
+})
+
+<span class="hljs-built_in">module</span>.exports = cooking.resolve()
+</code></pre>
+<h2 id="entry">entry</h2>
+<p>&#x540C; webapck entry &#x76F4;&#x63A5;&#x62F7;&#x8D1D;&#x8FDB;&#x6765;</p>
+<pre><code class="lang-javascript">{
+  entry: {
+    app: <span class="hljs-string">&apos;./src/main.js&apos;</span>
+  }
+}
+</code></pre>
+<h2 id="output">output</h2>
+<p>&#x9ED8;&#x8BA4;&#x8F93;&#x51FA;&#x8DEF;&#x5F84;&#x4E3A; <code>./dist</code>&#xFF0C;publicPath &#x4E3A; <code>/dist/</code>&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x81F4;&#x53EF;&#x4E0D;&#x8BBE;&#x7F6E;</p>
+<pre><code class="lang-javascript">{
+  publicPath: <span class="hljs-string">&apos;/dist/&apos;</span>,
+  dist: <span class="hljs-string">&apos;./dist&apos;</span>,
+  assetsPath: <span class="hljs-string">&apos;static&apos;</span>
+}
+</code></pre>
+<h2 id="loader">loader</h2>
+<p>cooking &#x9ED8;&#x8BA4;&#x63D0;&#x4F9B;&#x4E86; <code>css</code>&#x3001;<code>html</code>&#x3001;<code>images</code>&#x3001;<code>json</code> &#x7684; loader&#xFF0C;&#x56E0;&#x6B64; <code>build/webpack.base.conf.js</code> &#x4E2D;&#x7684; loader &#x57FA;&#x672C;&#x5305;&#x542B;&#xFF0C;&#x989D;&#x5916;&#x7684;&#x9700;&#x8981; vue-loader &#x548C; eslint-loader&#xFF0C;&#x53EA;&#x9700;&#x5728;&#x914D;&#x7F6E;&#x4E2D;&#x589E;&#x52A0;&#x63D2;&#x4EF6;</p>
+<pre><code class="lang-javascript">{
+  extends: [<span class="hljs-string">&apos;vue&apos;</span>, <span class="hljs-string">&apos;lint&apos;</span>]
+}
+</code></pre>
+<h2 id="resolve">resolve</h2>
+<p>alias &#x9700;&#x8981;&#x81EA;&#x5DF1;&#x914D;&#x7F6E;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E0D;&#x63D0;&#x4F9B;</p>
+<pre><code class="lang-javascript">cooking.add(<span class="hljs-string">&apos;resolve.alias&apos;</span>, {
+  <span class="hljs-string">&apos;src&apos;</span>: path.resolve(__dirname, <span class="hljs-string">&apos;../src&apos;</span>),
+  <span class="hljs-string">&apos;assets&apos;</span>: path.resolve(__dirname, <span class="hljs-string">&apos;../src/assets&apos;</span>),
+  <span class="hljs-string">&apos;components&apos;</span>: path.resolve(__dirname, <span class="hljs-string">&apos;../src/components&apos;</span>)
+})
+</code></pre>
+<h2 id="dev-server">dev server</h2>
+<p>cooking &#x63D0;&#x4F9B;&#x7684; dev server &#x4E3A; webpack &#x63D0;&#x4F9B;&#x7684; webpack-dev-server&#xFF0C;&#x914D;&#x7F6E;&#x53C2;&#x6570;<a href="http://webpack.github.io/docs/webpack-dev-server.html" target="_blank">&#x53C2;&#x8003;&#x6587;&#x6863;</a>&#xFF0C;&#x53EF;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;</p>
+<pre><code class="lang-javascript">{
+  devServer: <span class="hljs-literal">true</span>
+}
+
+<span class="hljs-comment">// &#x4EE5;&#x4E0B;&#x662F;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;</span>
+{
+  devServer: {
+   <span class="hljs-comment">// &#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x8FD9;&#x91CC;&#x7684; publicPath &#x4F1A;&#x66FF;&#x6362;&#x6389;&#x4E0A;&#x9762;&#x914D;&#x7F6E;&#x7684; publicPath&#xFF0C;&#x4E0E;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x76F8;&#x53CD;</span>
+    publicPath: <span class="hljs-string">&apos;/&apos;</span>,
+    port: <span class="hljs-number">8080</span>,
+    hot: <span class="hljs-literal">true</span>,
+    enable: <span class="hljs-literal">true</span>,
+    historyApiFallback: <span class="hljs-literal">true</span>,
+    lazy: <span class="hljs-literal">false</span>,
+    stats: <span class="hljs-string">&apos;errors-only&apos;</span>,
+    protocol: <span class="hljs-string">&apos;http:&apos;</span>,
+    hostname: <span class="hljs-string">&apos;localhost&apos;</span>
+  }
+}
+</code></pre>
+<h2 id="extracttextplugin">ExtractTextPlugin</h2>
+<p>&#x53EA;&#x9700;&#x914D;&#x7F6E; extractCSS &#x53C2;&#x6570;&#x5373;&#x53EF;</p>
+<pre><code class="lang-javascript">{
+  extractCSS: <span class="hljs-literal">true</span>
+}
+</code></pre>
+<h2 id="htmlwebpackplugin">HtmlWebpackPlugin</h2>
+<p>&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x5982;&#x679C;&#x65E0;&#x7279;&#x6B8A;&#x914D;&#x7F6E;&#x76F4;&#x63A5;&#x8BBE;&#x7F6E;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</p>
+<pre><code class="lang-javascript">  template: <span class="hljs-string">&apos;./index.html&apos;</span>
+</code></pre>
+<h2 id="&#x6700;&#x7EC8;&#x6587;&#x4EF6;">&#x6700;&#x7EC8;&#x6587;&#x4EF6;</h2>
+<p>&#x989D;&#x5916;&#x7684;&#x8865;&#x4E0A; use&#x3001;hash&#x3001;clean&#x3001;sourceMap &#x53C2;&#x6570;&#xFF0C;&#x6700;&#x7EC8;&#x914D;&#x7F6E;&#x5C06;&#x539F;&#x5148;&#x6570;&#x4E2A;&#x6587;&#x4EF6;&#x4E0A;&#x767E;&#x884C;&#x7684;&#x914D;&#x7F6E;&#x7B80;&#x5316;&#x6210;&#x5982;&#x4E0B;&#x914D;&#x7F6E;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;path&apos;</span>)
+<span class="hljs-keyword">var</span> cooking = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;cooking&apos;</span>)
+
+cooking.set({
+  use: <span class="hljs-string">&apos;vue&apos;</span>,
+  entry: <span class="hljs-string">&apos;./src/main.js&apos;</span>,
+  dist: <span class="hljs-string">&apos;./dist&apos;</span>,
+  template: <span class="hljs-string">&apos;./index.html&apos;</span>,
+  devServer: <span class="hljs-literal">true</span>,
+
+  hash: <span class="hljs-literal">true</span>,
+  clean: <span class="hljs-literal">true</span>,
+  extractCSS: <span class="hljs-literal">true</span>,
+  sourceMap: <span class="hljs-literal">true</span>,
+  publicPath: <span class="hljs-string">&apos;/dist/&apos;</span>,
+  assetsPath: <span class="hljs-string">&apos;static&apos;</span>,
+  extends: [<span class="hljs-string">&apos;vue&apos;</span>, <span class="hljs-string">&apos;lint&apos;</span>]
+})
+
+cooking.add(<span class="hljs-string">&apos;resolve.alias&apos;</span>, {
+  <span class="hljs-string">&apos;src&apos;</span>: path.resolve(__dirname, <span class="hljs-string">&apos;../src&apos;</span>),
+  <span class="hljs-string">&apos;assets&apos;</span>: path.resolve(__dirname, <span class="hljs-string">&apos;../src/assets&apos;</span>),
+  <span class="hljs-string">&apos;components&apos;</span>: path.resolve(__dirname, <span class="hljs-string">&apos;../src/components&apos;</span>)
+})
+
+<span class="hljs-built_in">module</span>.exports = cooking.resolve()
+</code></pre>
+<p>&#x540C;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x4E0A;&#x6D4B;&#x8BD5;&#x7684;&#x8BDD;&#xFF0C;package.json &#x4E2D;&#x7684;&#x4F9D;&#x8D56;&#x53EF;&#x4EE5;&#x6E05;&#x7406;&#x4E0B;&#x4E86;</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;test-vue&quot;</span>,
+  <span class="hljs-string">&quot;version&quot;</span>: <span class="hljs-string">&quot;0.0.0&quot;</span>,
+  <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;A vue project.&quot;</span>,
+  <span class="hljs-string">&quot;dependencies&quot;</span>: {
+  },
+  <span class="hljs-string">&quot;devDependencies&quot;</span>: {
+  }
+}
+</code></pre>
 
                     
                     </section>
@@ -404,10 +523,10 @@
         </div>
 
         
-        <a href="./create-a-generator.html" class="navigation navigation-prev " aria-label="Previous page: 如何写脚手架"><i class="fa fa-angle-left"></i></a>
+        <a href="./create-a-package.html" class="navigation navigation-prev " aria-label="Previous page: 如何写依赖包"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="./create-a-package.html" class="navigation navigation-next " aria-label="Next page: 如何写依赖包"><i class="fa fa-angle-right"></i></a>
+        <a href="./faq.html" class="navigation navigation-next " aria-label="Next page: 一些问题"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
