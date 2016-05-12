@@ -47,7 +47,7 @@ cooking 包装了一些 webpack 配置项，所提供的配置参数满足多数
 HTML 模板文件，使用 [html-webpack-plugin](https://github.com/ampedandwired/html-webpack-plugin) 生成。接受 Boolean|String|Object 类型
 ```javascript
 {
-  // 自动生成一个 idnex.html 文件
+  // 自动生成一个 index.html 文件
   template: true
 }
 
