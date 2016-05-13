@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" >
+<html lang="zh-tw" >
     
     <head>
         
@@ -21,11 +21,11 @@
     <link rel="stylesheet" href="gitbook/style.css">
     
         
-        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search-pro/search-pro.css">
         
     
         
-        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
         
@@ -53,7 +53,7 @@
         data-chapter-title="方法"
         data-filepath="nodejs-api.md"
         data-basepath="."
-        data-revision="Fri May 13 2016 13:49:11 GMT+0800 (CST)"
+        data-revision="Fri May 13 2016 14:06:23 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -372,7 +372,7 @@
             <li class="divider"></li>
             <li>
                 <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-                    Published with GitBook
+                    本書使用 GitBook 釋出
                 </a>
             </li>
             
@@ -509,11 +509,7 @@ config.resolve.extensions.push(<span class="hljs-string">&apos;.json&apos;</span
 <script src="gitbook/app.js"></script>
 
     
-    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
-    
-
-    
-    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    <script src="gitbook/plugins/gitbook-plugin-search-pro/search-pro.js"></script>
     
 
     
@@ -526,7 +522,7 @@ config.resolve.extensions.push(<span class="hljs-string">&apos;.json&apos;</span
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"toc":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"search-pro":{"cutWordLib":"nodejieba"},"toc":{},"highlight":{},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

@@ -1,3 +1,11 @@
+.body-inner .search-highlight{
+    color:#000;
+    font-weight: bold;
+    display: inline-block;
+    background-color: yellow;
+}
+
+/* copy from gitbook-plugin-search */
 .book .book-summary .book-search {
   padding: 6px;
   background: transparent;
@@ -25,3 +33,4 @@
 .book.with-search .book-summary ul.summary {
   top: 50px;
 }
+/* end: copy from gitbook-plugin-search */
