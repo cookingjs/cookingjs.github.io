@@ -6,7 +6,7 @@ cooking 的插件本质上是提供扩展配置和依赖。不同插件扩展的
 
 ```javascript
 /**
- * @param  {object} cooking - 该参数提供 add, remove 和 config
+ * @param  {object} cooking - 该参数提供 add, remove _userConfig 和 config
  * @param  {*} options - 支持自定义参数
  */
 module.exports = function (cooking, options) {
@@ -20,7 +20,7 @@ module.exports = function (cooking, options) {
 
 ## 参数
 ### `cooking`
-提供的 add 与 remove 与[之前介绍](nodejs-api.md)的一致，config 当前的配置内容。例如一个 vue 插件的主要代码
+提供的 add 与 remove 与[之前介绍](nodejs-api.md)的一致，config 当前的 webpack 配置内容，而 _userConfig 可以获取用户配置的内容。例如一个 vue 插件的主要代码
 ```javascript
 var cssLoader = require('./css-loader')
 
