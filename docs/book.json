@@ -1,6 +1,12 @@
 {
   "title": "cooking",
-  "plugins": ["toc"],
+  "language": "zh-cn",
+  "plugins": ["toc", "-search", "search-pro"],
+  "pluginsConfig": {
+    "search-pro": {
+      "cutWordLib": "nodejieba"
+    }
+  },
   "links": {
     "sharing": {
       "facebook": false,
