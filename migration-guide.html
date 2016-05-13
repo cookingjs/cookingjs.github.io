@@ -53,7 +53,7 @@
         data-chapter-title="迁移指南"
         data-filepath="migration-guide.md"
         data-basepath="."
-        data-revision="Thu May 12 2016 21:45:45 GMT+0800 (CST)"
+        data-revision="Fri May 13 2016 11:32:55 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -473,6 +473,27 @@ cooking.set({
 <p>&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x5982;&#x679C;&#x65E0;&#x7279;&#x6B8A;&#x914D;&#x7F6E;&#x76F4;&#x63A5;&#x8BBE;&#x7F6E;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</p>
 <pre><code class="lang-javascript">  template: <span class="hljs-string">&apos;./index.html&apos;</span>
 </code></pre>
+<p>&#x5F53;&#x9700;&#x8981;&#x5728;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x4E2D;&#x5F15;&#x5165;&#x53D8;&#x91CF;&#x65F6;&#xFF0C;&#x5E94;&#x5199;&#x4E3A; <code>&lt;%= someVariable %&gt;</code>&#xFF08;&#x8BE6;&#x89C1;<a href="https://github.com/ampedandwired/html-webpack-plugin/blob/master/migration.md#templating-and-variables" target="_blank">&#x5B98;&#x65B9;&#x6587;&#x6863;</a>&#xFF09;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">%=</span> <span class="hljs-attribute">htmlWebpackPlugin.options.title</span> %&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+</code></pre>
+<p>&#x6B64;&#x5916;&#xFF0C;&#x7531;&#x4E8E;<a href="https://github.com/ampedandwired/html-webpack-plugin/issues/223" target="_blank">&#x8FD9;&#x4E2A;&#x95EE;&#x9898;</a>&#x7684;&#x5B58;&#x5728;&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x505A;&#x8FDB;&#x4E00;&#x6B65;&#x5904;&#x7406;&#x624D;&#x80FD;&#x4FDD;&#x8BC1;&#x53D8;&#x91CF;&#x88AB;&#x6B63;&#x786E;&#x89E3;&#x6790;&#xFF0C;&#x76EE;&#x524D;&#x5171;&#x6709; 3 &#x4E2A;&#x65B9;&#x6848;&#xFF1A;</p>
+<ul>
+<li>&#x65B9;&#x6848;&#x4E00;&#xFF08;&#x63A8;&#x8350;&#xFF09;&#xFF1A;&#x5C06;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x7684;&#x540E;&#x7F00;&#x540D;&#x6539;&#x4E3A; <code>tpl</code>&#xFF0C;&#x4F8B;&#x5982;&#x6A21;&#x677F;&#x6587;&#x4EF6; <code>index.html</code> &#x9700;&#x6539;&#x4E3A; <code>index.tpl</code>&#xFF1B;</li>
+<li>&#x65B9;&#x6848;&#x4E8C;&#xFF1A;&#x5728;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684; <code>loader</code> &#x4E2D;&#x5C06;&#x8BE5;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x6392;&#x9664;&#xFF1A;<pre><code class="lang-javascript">cooking.add(<span class="hljs-string">&apos;loader.html&apos;</span>, {
+test: <span class="hljs-regexp">/\.html$/</span>,
+loader: <span class="hljs-string">&apos;html&apos;</span>,
+exclude: <span class="hljs-regexp">/^index\.html$/</span>
+})
+</code></pre>
+</li>
+<li>&#x65B9;&#x6848;&#x4E09;&#xFF1A;&#x4F7F;&#x7528; <code>underscore-template-loader</code> &#x5904;&#x7406;&#x8BE5;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#xFF1A;<pre><code class="lang-javascript">template: {
+<span class="hljs-string">&apos;index.html&apos;</span>: {
+ template: <span class="hljs-string">&apos;underscore-template!./index.html&apos;</span>
+}
+}
+</code></pre>
+</li>
+</ul>
 <h2 id="&#x6700;&#x7EC8;&#x6587;&#x4EF6;">&#x6700;&#x7EC8;&#x6587;&#x4EF6;</h2>
 <p>&#x989D;&#x5916;&#x7684;&#x8865;&#x4E0A; use&#x3001;hash&#x3001;clean&#x3001;sourceMap &#x53C2;&#x6570;&#xFF0C;&#x6700;&#x7EC8;&#x914D;&#x7F6E;&#x5C06;&#x539F;&#x5148;&#x6570;&#x4E2A;&#x6587;&#x4EF6;&#x4E0A;&#x767E;&#x884C;&#x7684;&#x914D;&#x7F6E;&#x7B80;&#x5316;&#x6210;&#x5982;&#x4E0B;&#x914D;&#x7F6E;</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;path&apos;</span>)
