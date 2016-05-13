@@ -91,6 +91,29 @@ cooking 提供的 dev server 为 webpack 提供的 webpack-dev-server，配置�
   template: './index.html'
 ```
 
+当需要在模板文件中引入变量时，应写为 `<%= someVariable %>`（详见[官方文档](https://github.com/ampedandwired/html-webpack-plugin/blob/master/migration.md#templating-and-variables)），例如：
+```html
+<title><%= htmlWebpackPlugin.options.title %></title>
+```
+此外，由于[这个问题](https://github.com/ampedandwired/html-webpack-plugin/issues/223)的存在，还需要做进一步处理才能保证变量被正确解析，目前共有 3 个方案：
+*  方案一（推荐）：将模板文件的后缀名改为 `tpl`，例如模板文件 `index.html` 需改为 `index.tpl`；
+*  方案二：在配置文件的 `loader` 中将该模板文件排除：
+```javascript
+cooking.add('loader.html', {
+  test: /\.html$/,
+  loader: 'html',
+  exclude: /^index\.html$/
+})
+```
+*  方案三：使用 `underscore-template-loader` 处理该模板文件：
+```javascript
+template: {
+  'index.html': {
+    template: 'underscore-template!./index.html'
+  }
+}
+```
+
 ## 最终文件
 额外的补上 use、hash、clean、sourceMap 参数，最终配置将原先数个文件上百行的配置简化成如下配置
 
