@@ -53,7 +53,7 @@
         data-chapter-title="迁移指南"
         data-filepath="migration-guide.md"
         data-basepath="."
-        data-revision="Fri May 13 2016 14:14:15 GMT+0800 (CST)"
+        data-revision="Mon May 16 2016 13:48:18 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -494,6 +494,21 @@ exclude: <span class="hljs-regexp">/^index\.html$/</span>
 </code></pre>
 </li>
 </ul>
+<h2 id="babel-&#x548C;-eslint-&#x914D;&#x7F6E;">babel &#x548C; eslint &#x914D;&#x7F6E;</h2>
+<p>&#x63A8;&#x8350;&#x505A;&#x6CD5;&#x662F;&#x5728;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x521B;&#x5EFA; .babelrc&#x3001; .eslintrc &#x6587;&#x4EF6;</p>
+<p>.babelrc</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;presets&quot;</span>: [<span class="hljs-string">&quot;es2015&quot;</span>, <span class="hljs-string">&quot;stage-0&quot;</span>, <span class="hljs-string">&quot;stage-2&quot;</span>],
+  <span class="hljs-string">&quot;plugins&quot;</span>: [<span class="hljs-string">&quot;transform-runtime&quot;</span>],
+  <span class="hljs-string">&quot;comments&quot;</span>: <span class="hljs-literal">false</span>
+}
+</code></pre>
+<p>.eslintrc</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;extends&quot;</span>: [<span class="hljs-string">&quot;elemefe&quot;</span>],
+  <span class="hljs-string">&quot;plugins&quot;</span>: [<span class="hljs-string">&quot;vue&quot;</span>]
+}
+</code></pre>
 <h2 id="&#x6700;&#x7EC8;&#x6587;&#x4EF6;">&#x6700;&#x7EC8;&#x6587;&#x4EF6;</h2>
 <p>&#x989D;&#x5916;&#x7684;&#x8865;&#x4E0A; use&#x3001;hash&#x3001;clean&#x3001;sourceMap &#x53C2;&#x6570;&#xFF0C;&#x6700;&#x7EC8;&#x914D;&#x7F6E;&#x5C06;&#x539F;&#x5148;&#x6570;&#x4E2A;&#x6587;&#x4EF6;&#x4E0A;&#x767E;&#x884C;&#x7684;&#x914D;&#x7F6E;&#x7B80;&#x5316;&#x6210;&#x5982;&#x4E0B;&#x914D;&#x7F6E;</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;path&apos;</span>)
