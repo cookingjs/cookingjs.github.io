@@ -114,6 +114,27 @@ template: {
 }
 ```
 
+## babel 和 eslint 配置
+推荐做法是在项目目录创建 .babelrc、 .eslintrc 文件
+
+.babelrc
+```json
+{
+  "presets": ["es2015", "stage-0", "stage-2"],
+  "plugins": ["transform-runtime"],
+  "comments": false
+}
+```
+
+.eslintrc
+```json
+{
+  "extends": ["elemefe"],
+  "plugins": ["vue"]
+}
+```
+
+
 ## 最终文件
 额外的补上 use、hash、clean、sourceMap 参数，最终配置将原先数个文件上百行的配置简化成如下配置
 
