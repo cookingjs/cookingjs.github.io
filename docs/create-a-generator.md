@@ -1,5 +1,5 @@
 # 如何写脚手架
-内置的脚手架工具是 [slush](https://github.com/slushjs/slush)，相比 [yoman](http://yeoman.io/authoring/index.html) 更轻量级且写起来也会很熟悉（用 Gulp 写脚手架[^1]）。
+内置的脚手架工具是 [slush](https://github.com/slushjs/slush)，相比 [yeoman](http://yeoman.io/authoring/index.html) 更轻量级且写起来也会很熟悉（用 Gulp 写脚手架[^1]）。
 
 无论你会不会用 Gulp，可以直接通过提供的脚手架生成一个脚手架，基本上改改配置就能写完一个脚手架
 ```bash
