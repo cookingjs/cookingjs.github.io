@@ -100,6 +100,12 @@ HTML 模板文件，使用 [html-webpack-plugin](https://github.com/ampedandwire
     // 热替换
     hot: true,
 
+    // 提取 CSS
+    extractCSS: false,
+
+    // 显示日志信息在页面上
+    log: true,
+
     port: 8080,
     hostname: 'localhost',
     protocol: 'http:',
