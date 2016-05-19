@@ -69,7 +69,9 @@ cooking.remove('loader.json')
 
 默认设置的 loader 包含
 - loader.js
-- loader.assets
+- loader.font
+- loader.image
+- loader.svg
 - loader.html
 - loader.css
 - loader.json
