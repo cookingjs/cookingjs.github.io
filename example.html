@@ -25,6 +25,10 @@
         
     
         
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-disqus/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -53,7 +57,7 @@
         data-chapter-title="例子"
         data-filepath="example.md"
         data-basepath="."
-        data-revision="Thu May 19 2016 17:38:11 GMT+0800 (CST)"
+        data-revision="Fri May 20 2016 00:20:12 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -467,6 +471,14 @@ cooking.set({
     
 
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-disqus/plugin.js"></script>
+    
+
+    
     <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
     
 
@@ -476,7 +488,7 @@ cooking.set({
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"search-pro":{"cutWordLib":"nodejieba"},"toc":{},"highlight":{},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"search-pro":{"cutWordLib":"nodejieba"},"disqus":{"shortName":"cookingjs","useIdentifier":false},"toc":{},"highlight":{},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>
