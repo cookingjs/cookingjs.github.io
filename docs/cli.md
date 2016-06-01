@@ -92,7 +92,7 @@ $ cooking watch -c cooking.desktop.js,cooking.mobile.js
 
 - --output-public-path
 
-设置 publicPath，会覆盖配置文件中的 publicPathg
+设置 publicPath，会覆盖配置文件中的 publicPath
 
 ```shell
 cooking build --output-public-path xxx.cdn.com/
