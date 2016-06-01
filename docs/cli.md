@@ -90,6 +90,14 @@ $ cooking watch -c cooking.desktop.js,cooking.mobile.js
 
 控制台输出信息不显示颜色。
 
+- --output-public-path
+
+设置 publicPath，会覆盖配置文件中的 publicPathg
+
+```shell
+cooking build --output-public-path xxx.cdn.com/
+```
+
 ## 插件
 
 ### `import`
