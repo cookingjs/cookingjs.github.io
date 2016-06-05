@@ -4,15 +4,6 @@ cooking 包装了一些 webpack 配置项，所提供的配置参数满足多数
 
 <!-- toc -->
 
-
-## use
-生产上所需要的依赖包，例如 vue、react、angular 相关的依赖，非 devDependencies
-```javascript
-{
-  use: 'vue'
-}
-```
-
 ## entry
 与 webpack 的 [entry](http://webpack.github.io/docs/configuration.html#entry) 一致，入口文件。接受 String|Array|Object 类型
 ```javascript

@@ -117,13 +117,6 @@ $ cooking import lint-cli
 $ cooking import vue -t
 ```
 
-- -p --package
-
-安装依赖包
-```bash
-$ cooking import vue -p
-```
-
 - -r --registry
 
 指定下载镜像，如果配置了 config:registry 会使用配置中的镜像
