@@ -63,11 +63,27 @@ HTML 模板文件，使用 [html-webpack-plugin](https://github.com/ampedandwire
       chunks: ['admin', 'vendor'], // 不同页面使用不同的 chunk
       template: 'src/assets/test.tpl',
     },
-    'app.html': {
-      template: 'src/assets/app.tpl',
-      chunks: ['app', 'vendor']
+    'home.html': {
+      template: 'src/assets/home.tpl',
+      chunks: ['home', 'vendor']
     }
   }
+}
+
+// 支持传入数组
+{
+  template: [
+    {
+      filename: 'admin.html',
+      template: 'src/assets/admin.tpl',
+      chunks: ['admin', 'vendor']
+    },
+    {
+      filename: 'index.html',
+      template: 'src/assets/home.tpl',
+      chunks: ['home', 'vendor']
+    }
+  ]
 }
 ```
 
@@ -210,6 +226,22 @@ webpack 的 [chunk](http://webpack.github.io/docs/list-of-plugins.html#commonsch
       // (Only use these entries)
     }
   }
+}
+
+// 支持传入数组
+{
+  chunk: [
+    {
+      name: 'chunkA',
+      filename: 'commonsA.js',
+      chunks: ['pageA', 'pageC']
+    },
+    {
+      name: 'chunkB',
+      filename: 'commonsB.js',
+      chunks: ['pageB', 'pageC']
+    }
+  ]
 }
 ```
 
