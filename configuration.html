@@ -57,7 +57,7 @@
         data-chapter-title="配置参数"
         data-filepath="configuration.md"
         data-basepath="."
-        data-revision="Sun Jun 05 2016 11:01:34 GMT+0800 (CST)"
+        data-revision="Fri Jun 10 2016 22:36:51 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -426,11 +426,27 @@
       chunks: [<span class="hljs-string">&apos;admin&apos;</span>, <span class="hljs-string">&apos;vendor&apos;</span>], <span class="hljs-comment">// &#x4E0D;&#x540C;&#x9875;&#x9762;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684; chunk</span>
       template: <span class="hljs-string">&apos;src/assets/test.tpl&apos;</span>,
     },
-    <span class="hljs-string">&apos;app.html&apos;</span>: {
-      template: <span class="hljs-string">&apos;src/assets/app.tpl&apos;</span>,
-      chunks: [<span class="hljs-string">&apos;app&apos;</span>, <span class="hljs-string">&apos;vendor&apos;</span>]
+    <span class="hljs-string">&apos;home.html&apos;</span>: {
+      template: <span class="hljs-string">&apos;src/assets/home.tpl&apos;</span>,
+      chunks: [<span class="hljs-string">&apos;home&apos;</span>, <span class="hljs-string">&apos;vendor&apos;</span>]
     }
   }
+}
+
+<span class="hljs-comment">// &#x652F;&#x6301;&#x4F20;&#x5165;&#x6570;&#x7EC4;</span>
+{
+  template: [
+    {
+      filename: <span class="hljs-string">&apos;admin.html&apos;</span>,
+      template: <span class="hljs-string">&apos;src/assets/admin.tpl&apos;</span>,
+      chunks: [<span class="hljs-string">&apos;admin&apos;</span>, <span class="hljs-string">&apos;vendor&apos;</span>]
+    },
+    {
+      filename: <span class="hljs-string">&apos;index.html&apos;</span>,
+      template: <span class="hljs-string">&apos;src/assets/home.tpl&apos;</span>,
+      chunks: [<span class="hljs-string">&apos;home&apos;</span>, <span class="hljs-string">&apos;vendor&apos;</span>]
+    }
+  ]
 }
 </code></pre>
 <h2 id="devserver">devServer</h2>
@@ -549,6 +565,22 @@
       <span class="hljs-comment">// (Only use these entries)</span>
     }
   }
+}
+
+<span class="hljs-comment">// &#x652F;&#x6301;&#x4F20;&#x5165;&#x6570;&#x7EC4;</span>
+{
+  chunk: [
+    {
+      name: <span class="hljs-string">&apos;chunkA&apos;</span>,
+      filename: <span class="hljs-string">&apos;commonsA.js&apos;</span>,
+      chunks: [<span class="hljs-string">&apos;pageA&apos;</span>, <span class="hljs-string">&apos;pageC&apos;</span>]
+    },
+    {
+      name: <span class="hljs-string">&apos;chunkB&apos;</span>,
+      filename: <span class="hljs-string">&apos;commonsB.js&apos;</span>,
+      chunks: [<span class="hljs-string">&apos;pageB&apos;</span>, <span class="hljs-string">&apos;pageC&apos;</span>]
+    }
+  ]
 }
 </code></pre>
 <h2 id="extractcss">extractCSS</h2>
