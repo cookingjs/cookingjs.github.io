@@ -12,9 +12,11 @@
 - 扩展
  - [插件](list-of-plugins.md)
  - [脚手架](list-of-generators.md)
+ - [指令](list-of-commands.md)
 
 - 教程
  - [如何写插件](create-a-plugin.md)
  - [如何写脚手架](create-a-generator.md)
  - [迁移指南](migration-guide.md)
  - [一些问题](faq.md)
+ - [如何写测试](test.md)
