@@ -106,8 +106,8 @@ cooking build --output-public-path xxx.cdn.com/
 # 安装插件
 $ cooking import vue
 
-# 安装指令，指令列表中会多一个 cooking lint
-$ cooking import lint-cli
+# 安装指令，指令列表中会多一个 cooking test
+$ cooking import test -c
 ```
 
 - -t --template[^2]
@@ -131,12 +131,11 @@ $ cooking import vue -r https://registry.npm.taobao.org
 $ cooking update vue
 
 # 更新指令
-$ cooking update lint-cli
+$ cooking update test -c
 ```
 
 - -t -template
 - -r --registry
-- -p --package
 
 同 `import`
 
@@ -149,11 +148,10 @@ $ cooking update lint-cli
 $ cooking remove vue
 
 # 卸载指令
-$ cooking remove lint-cli
+$ cooking remove test -c
 ```
 
 - -t -template
-- -p --package
 
 同 `import`
 

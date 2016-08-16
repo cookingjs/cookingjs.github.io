@@ -1,5 +1,11 @@
 # 插件
 
+升级插件的方式
+```shell
+cooking remove vue
+cooking import vue
+```
+
 通过 [extends](configuration.html#extends) 我们可以引入额外的配置和依赖，目前提供的插件有：
 
 - [vue](https://github.com/cookingjs/cooking-vue) - 提供 vue 相关配置

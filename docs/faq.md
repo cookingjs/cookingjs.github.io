@@ -73,6 +73,8 @@ $ cooking watch -c build/webpack.dev.conf.js
 }
 ```
 
+#### 执行指令提示模块找不到？
+请检查用户根目录下是否存在 `node_modules` 目录，如果有的话将其删掉。 macOS 用户的路径是在 `~/node_modules`。
 
 -------------
 [^1]: https://github.com/MoOx/eslint-loader/issues/23

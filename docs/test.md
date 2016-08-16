@@ -2,6 +2,18 @@
 
 提供的 [cooking-test-command](https://github.com/cookingjs/cooking-test-command) 可以方便的让我们使用任何测试工具。例如 cooking 提供的 [cooking-karma](https://github.com/cookingjs/cooking-karma) 插件会帮你安装 karma 的相关依赖，接着就可以像正常使用 karma 的方式写测试了。
 
+## 快速上手
+cooking 的 vue 脚手架已经提供了创建 test 相关配置的选项，升级到 ^0.5.0 即可体验。
+```shell
+# 确保已经安装过了 karma 和 test 指令
+cooking import karma
+cooking import test -c
+
+# 使用 ^0.5.0 的脚手架
+cooking init vue
+cooking test
+```
+
 ## 安装
 安装成功后执行 `cooking` 会看到命令行里多了一条 `test` 指令。
 ```shell
@@ -29,4 +41,4 @@ cooking test karma init
 cooking test karma start --single-run
 ```
 
-同样的道理，你可以自己安装 tap、ava 等测试工具，用同样的方式使用。同样也可以把它们分装成 cooking 的插件，就只需像 cooking-karma 一样安装一次了。
+同样的道理，你可以自己安装 tap、ava 等测试工具，用同样的方式使用。同样也可以把它们封装成 cooking 的插件，就只需像 cooking-karma 一样安装一次了。

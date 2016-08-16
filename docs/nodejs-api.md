@@ -36,6 +36,8 @@ cooking.add('loader.es6', {
 
 如果是增加 plugin
 ```javascript
+// var webpack = require('webpack')
+// 会引入 cooking 提供的 webpack，不需要单独安装
 cooking.add('plugin.Banner', new webpack.BannerPlugin(banner, options))
 
 // 将会被翻译成
