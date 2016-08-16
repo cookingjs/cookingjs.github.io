@@ -55,7 +55,7 @@
         data-chapter-title="如何写测试"
         data-filepath="test.md"
         data-basepath="."
-        data-revision="Sun Aug 14 2016 10:54:49 GMT+0800 (CST)"
+        data-revision="Tue Aug 16 2016 22:15:45 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -381,6 +381,16 @@
                     
                         <h1 id="&#x5982;&#x4F55;&#x5199;&#x6D4B;&#x8BD5;">&#x5982;&#x4F55;&#x5199;&#x6D4B;&#x8BD5;</h1>
 <p>&#x63D0;&#x4F9B;&#x7684; <a href="https://github.com/cookingjs/cooking-test-command" target="_blank">cooking-test-command</a> &#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x7684;&#x8BA9;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4EFB;&#x4F55;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;&#x3002;&#x4F8B;&#x5982; cooking &#x63D0;&#x4F9B;&#x7684; <a href="https://github.com/cookingjs/cooking-karma" target="_blank">cooking-karma</a> &#x63D2;&#x4EF6;&#x4F1A;&#x5E2E;&#x4F60;&#x5B89;&#x88C5; karma &#x7684;&#x76F8;&#x5173;&#x4F9D;&#x8D56;&#xFF0C;&#x63A5;&#x7740;&#x5C31;&#x53EF;&#x4EE5;&#x50CF;&#x6B63;&#x5E38;&#x4F7F;&#x7528; karma &#x7684;&#x65B9;&#x5F0F;&#x5199;&#x6D4B;&#x8BD5;&#x4E86;&#x3002;</p>
+<h2 id="&#x5FEB;&#x901F;&#x4E0A;&#x624B;">&#x5FEB;&#x901F;&#x4E0A;&#x624B;</h2>
+<p>cooking &#x7684; vue &#x811A;&#x624B;&#x67B6;&#x5DF2;&#x7ECF;&#x63D0;&#x4F9B;&#x4E86;&#x521B;&#x5EFA; test &#x76F8;&#x5173;&#x914D;&#x7F6E;&#x7684;&#x9009;&#x9879;&#xFF0C;&#x5347;&#x7EA7;&#x5230; ^0.5.0 &#x5373;&#x53EF;&#x4F53;&#x9A8C;&#x3002;</p>
+<pre><code class="lang-shell"># &#x786E;&#x4FDD;&#x5DF2;&#x7ECF;&#x5B89;&#x88C5;&#x8FC7;&#x4E86; karma &#x548C; test &#x6307;&#x4EE4;
+cooking import karma
+cooking import test -c
+
+# &#x4F7F;&#x7528; ^0.5.0 &#x7684;&#x811A;&#x624B;&#x67B6;
+cooking init vue
+cooking test
+</code></pre>
 <h2 id="&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</h2>
 <p>&#x5B89;&#x88C5;&#x6210;&#x529F;&#x540E;&#x6267;&#x884C; <code>cooking</code> &#x4F1A;&#x770B;&#x5230;&#x547D;&#x4EE4;&#x884C;&#x91CC;&#x591A;&#x4E86;&#x4E00;&#x6761; <code>test</code> &#x6307;&#x4EE4;&#x3002;</p>
 <pre><code class="lang-shell">cooking import test -c
@@ -398,7 +408,7 @@
 <h3 id="&#x8FD0;&#x884C;&#x6D4B;&#x8BD5;">&#x8FD0;&#x884C;&#x6D4B;&#x8BD5;</h3>
 <pre><code class="lang-shell">cooking test karma start --single-run
 </code></pre>
-<p>&#x540C;&#x6837;&#x7684;&#x9053;&#x7406;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x5B89;&#x88C5; tap&#x3001;ava &#x7B49;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;&#xFF0C;&#x7528;&#x540C;&#x6837;&#x7684;&#x65B9;&#x5F0F;&#x4F7F;&#x7528;&#x3002;&#x540C;&#x6837;&#x4E5F;&#x53EF;&#x4EE5;&#x628A;&#x5B83;&#x4EEC;&#x5206;&#x88C5;&#x6210; cooking &#x7684;&#x63D2;&#x4EF6;&#xFF0C;&#x5C31;&#x53EA;&#x9700;&#x50CF; cooking-karma &#x4E00;&#x6837;&#x5B89;&#x88C5;&#x4E00;&#x6B21;&#x4E86;&#x3002;</p>
+<p>&#x540C;&#x6837;&#x7684;&#x9053;&#x7406;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x5B89;&#x88C5; tap&#x3001;ava &#x7B49;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;&#xFF0C;&#x7528;&#x540C;&#x6837;&#x7684;&#x65B9;&#x5F0F;&#x4F7F;&#x7528;&#x3002;&#x540C;&#x6837;&#x4E5F;&#x53EF;&#x4EE5;&#x628A;&#x5B83;&#x4EEC;&#x5C01;&#x88C5;&#x6210; cooking &#x7684;&#x63D2;&#x4EF6;&#xFF0C;&#x5C31;&#x53EA;&#x9700;&#x50CF; cooking-karma &#x4E00;&#x6837;&#x5B89;&#x88C5;&#x4E00;&#x6B21;&#x4E86;&#x3002;</p>
 
                     
                     </section>

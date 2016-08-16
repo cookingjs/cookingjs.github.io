@@ -57,7 +57,7 @@
         data-chapter-title="CLI"
         data-filepath="cli.md"
         data-basepath="."
-        data-revision="Sun Aug 14 2016 10:54:49 GMT+0800 (CST)"
+        data-revision="Tue Aug 16 2016 22:15:45 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -486,8 +486,8 @@ $ cooking init vue
 <pre><code class="lang-bash"><span class="hljs-comment"># &#x5B89;&#x88C5;&#x63D2;&#x4EF6;</span>
 $ cooking import vue
 
-<span class="hljs-comment"># &#x5B89;&#x88C5;&#x6307;&#x4EE4;&#xFF0C;&#x6307;&#x4EE4;&#x5217;&#x8868;&#x4E2D;&#x4F1A;&#x591A;&#x4E00;&#x4E2A; cooking lint</span>
-$ cooking import lint-cli
+<span class="hljs-comment"># &#x5B89;&#x88C5;&#x6307;&#x4EE4;&#xFF0C;&#x6307;&#x4EE4;&#x5217;&#x8868;&#x4E2D;&#x4F1A;&#x591A;&#x4E00;&#x4E2A; cooking test</span>
+$ cooking import <span class="hljs-built_in">test</span> -c
 </code></pre>
 <ul>
 <li>-t --template<sup><a href="#fn_2" id="reffn_2">2</a></sup></li>
@@ -507,12 +507,11 @@ $ cooking import lint-cli
 $ cooking update vue
 
 <span class="hljs-comment"># &#x66F4;&#x65B0;&#x6307;&#x4EE4;</span>
-$ cooking update lint-cli
+$ cooking update <span class="hljs-built_in">test</span> -c
 </code></pre>
 <ul>
 <li>-t -template</li>
 <li>-r --registry</li>
-<li>-p --package</li>
 </ul>
 <p>&#x540C; <code>import</code></p>
 <h3 id="remove"><code>remove</code></h3>
@@ -521,11 +520,10 @@ $ cooking update lint-cli
 $ cooking remove vue
 
 <span class="hljs-comment"># &#x5378;&#x8F7D;&#x6307;&#x4EE4;</span>
-$ cooking remove lint-cli
+$ cooking remove <span class="hljs-built_in">test</span> -c
 </code></pre>
 <ul>
 <li>-t -template</li>
-<li>-p --package</li>
 </ul>
 <p>&#x540C; <code>import</code></p>
 <h3 id="list"><code>list</code></h3>

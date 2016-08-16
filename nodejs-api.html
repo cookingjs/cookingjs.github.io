@@ -57,7 +57,7 @@
         data-chapter-title="方法"
         data-filepath="nodejs-api.md"
         data-basepath="."
-        data-revision="Sun Aug 14 2016 10:54:49 GMT+0800 (CST)"
+        data-revision="Tue Aug 16 2016 22:15:45 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -420,7 +420,9 @@ cooking.set({
 }
 </code></pre>
 <p>&#x5982;&#x679C;&#x662F;&#x589E;&#x52A0; plugin</p>
-<pre><code class="lang-javascript">cooking.add(<span class="hljs-string">&apos;plugin.Banner&apos;</span>, <span class="hljs-keyword">new</span> webpack.BannerPlugin(banner, options))
+<pre><code class="lang-javascript"><span class="hljs-comment">// var webpack = require(&apos;webpack&apos;)</span>
+<span class="hljs-comment">// &#x4F1A;&#x5F15;&#x5165; cooking &#x63D0;&#x4F9B;&#x7684; webpack&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x5355;&#x72EC;&#x5B89;&#x88C5;</span>
+cooking.add(<span class="hljs-string">&apos;plugin.Banner&apos;</span>, <span class="hljs-keyword">new</span> webpack.BannerPlugin(banner, options))
 
 <span class="hljs-comment">// &#x5C06;&#x4F1A;&#x88AB;&#x7FFB;&#x8BD1;&#x6210;</span>
 {
