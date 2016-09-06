@@ -1,24 +1,24 @@
 # cooking
 
-> 更易上手的前端构建工具
+> A front-end build tool that comes handy
 
-- 开始
-  - [介绍](intro.md)
-  - [例子](example.md)
-- 使用
- - [配置参数](configuration.md)
- - [方法](nodejs-api.md)
+- Getting Started
+  - [Introduction](intro.md)
+  - [Example](example.md)
+- Guides
+ - [Configuration](configuration.md)
+ - [Methods](nodejs-api.md)
  - [CLI](cli.md)
-- 扩展
- - [插件](list-of-plugins.md)
- - [脚手架](list-of-generators.md)
- - [指令](list-of-commands.md)
+- Extensions
+ - [Plugins](list-of-plugins.md)
+ - [Generators](list-of-generators.md)
+ - [Commands](list-of-commands.md)
 
-- 教程
- - [如何写插件](create-a-plugin.md)
- - [如何写脚手架](create-a-generator.md)
- - [迁移指南](migration-guide.md)
- - [一些问题](faq.md)
- - [如何写测试](test.md)
+- Tutorials
+ - [How to write a plugin](create-a-plugin.md)
+ - [How to write a generator](create-a-generator.md)
+ - [Migration guide](migration-guide.md)
+ - [FAQ](faq.md)
+ - [How to write a test](test.md)
 
-**cooking 只能使用 NPM 3 及其以上的版本安装*
+**cooking can only be installed with NPM version 3 and above*

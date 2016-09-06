@@ -1,50 +1,44 @@
 <!-- toc -->
 
-## cooking 是什么
-cooking 是一个基于 webpack 但是提供更简单的配置项，同时内置了许多常用配置的构建工具。同时搭配
+## What is cooking
+cooking is a front-end build tool based on webpack with yet easier configuring and preset common configurations. With its CLI tool, you can manage and install your devDependencies globally. And it comes with generators that help scaffold a Vue-based or React-based project with efficiency.
 
-命令行工具可以将常用开发环境的依赖 (devDependencies) 安装全局，并且提供的脚手架功能能快速搭建
-
-基于 Vue 或 React 的项目。
-
-## 简单上手
+## Quick start
 ### cooking-cli
-> 一个基于 webapck 2 的全局安装的命令行工具，全局安装依赖，可以省去在每个项目里安装开发依赖的
-麻烦；同时还包含脚手架、插件管理等功能。
+> A globally installed CLI tool based on webpack 2. Installs project dependencies globally, thus frees you from installing them in each and every project. Provides generators, plugin management, etc.
 
-**首先确保是在 `NPM 3+`, `Node 4+`, `Python 2.7+` 环境下运行**
+**Make sure you have `NPM 3+`, `Node 4+`, `Python 2.7+` installed**
 
-第一步：安装 cooking 命令行工具
+Step 1: install cooking-cli
 ```bash
 npm i cooking-cli -g
 ```
 
-第二步：使用创建项目
+Step 2: create a project
 ```bash
 cooking create my-project vue
 ```
 
-第三步：开始开发
+Step 3: start developing
 ```bash
 cd my-project && cooking watch
 ```
 
-后续：打包、测试等
+Follow-ups: bundling, testing, etc.
 ```bash
 cooking build # or cooking run test
 ```
 
 ## cooking
-> cooking-cli 的核心部分。提供简化 webpack 配置，以及的 build/watch 指令。不包含任何依赖。
-同时兼容 webpack 1 和 2。
+> The core of cooking-cli. Provides simplified webpack configurations and build/watch commands. No dependencies. Compatible with webpack 1 and 2.
 
 
-第一步：安装 cooking
+Step 1: install cooking
 ```bash
 npm i cooking -D
 ```
 
-第二步：安装相关依赖
+Step 2: install dependencies
 ```bash
 # webpack 1
 npm i babel-core babel-loader css-loader file-loader postcss postcss-loader\
@@ -57,7 +51,7 @@ npm i babel-core babel-loader css-loader file-loader postcss postcss-loader\
  webpack@beta webpack-dev-server@beta extract-text-webpack-plugin@beta -D
 ```
 
-第三步：写 cooking 的配置
+Step 3: configure cooking
 
 cooking.conf.js
 ```javascript
@@ -71,17 +65,17 @@ cooking.set({
 modules.export = cooking.resolve()
 ```
 
-第四步：运行
+Step 4: run
 ```bash
-# 开始开发
+# develop
 node_modules/.bin/cooking watch
 
-# 打包
+# bundle
 node_modules/.bin/cooking build
 
-# 当然可以用 webpack 启动
+# or use webpack commands
 webpack --config cooking.conf.js
 
-# 如果你全局安装了 cooking-cli 同样也可以使用
+# and if cooking-cli is installed globally
 cooking watch # or build
 ```
