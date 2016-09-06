@@ -45,11 +45,13 @@ cooking 默认提供了 `css`、`html`、`images`、`json` 的 loader，因此 `
 ## resolve
 alias 需要自己配置，默认不提供
 ```javascript
-cooking.add('resolve.alias', {
-  'src': path.resolve(__dirname, '../src'),
-  'assets': path.resolve(__dirname, '../src/assets'),
-  'components': path.resolve(__dirname, '../src/components')
-})
+{
+  alias: {
+    'src': path.resolve(__dirname, '../src'),
+    'assets': path.resolve(__dirname, '../src/assets'),
+    'components': path.resolve(__dirname, '../src/components')
+  }
+}
 ```
 
 ## dev server
@@ -155,13 +157,12 @@ cooking.set({
   sourceMap: true,
   publicPath: '/dist/',
   assetsPath: 'static',
-  extends: ['vue', 'lint']
-})
-
-cooking.add('resolve.alias', {
-  'src': path.resolve(__dirname, '../src'),
-  'assets': path.resolve(__dirname, '../src/assets'),
-  'components': path.resolve(__dirname, '../src/components')
+  extends: ['vue', 'lint'],
+  alias: {
+    'src': path.resolve(__dirname, '../src'),
+    'assets': path.resolve(__dirname, '../src/assets'),
+    'components': path.resolve(__dirname, '../src/components')
+  }
 })
 
 module.exports = cooking.resolve()
@@ -174,6 +175,7 @@ module.exports = cooking.resolve()
   "version": "0.0.0",
   "description": "A vue project.",
   "dependencies": {
+    "vue": "^1.0.0"
   },
   "devDependencies": {
   }

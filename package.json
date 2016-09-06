@@ -27,6 +27,7 @@
     "gh-pages": "^0.11.0",
     "gitbook-cli": "^2.1.3",
     "gitbook-plugin-disqus": "^0.1.0",
+    "gitbook-plugin-prism": "^1.1.0",
     "gitbook-plugin-search-pro": "^1.0.9",
     "gitbook-plugin-toc": "0.0.1"
   }

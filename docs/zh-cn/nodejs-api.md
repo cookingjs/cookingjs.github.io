@@ -14,7 +14,7 @@ cooking.set({
 ```
 
 ## add(path: String, option: Any)
-如果我们想增加（或是覆盖） loader 或者 plugin 就可以使用该方法。
+如果我们想增加（或是覆盖） loader 或者 plugin 就可以使用该方法。不区分大小写。
 ```javascript
 cooking.add('loader.es6', {
   test: /\.es6$/,

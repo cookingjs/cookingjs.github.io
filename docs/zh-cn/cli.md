@@ -100,6 +100,8 @@ cooking build --output-public-path xxx.cdn.com/
 
 ## 插件
 
+多个插件用空格分隔。
+
 ### `import`
 安装插件[^1]、指令、脚手架
 ```bash

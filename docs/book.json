@@ -1,19 +1,13 @@
 {
   "title": "cooking",
-  "language": "zh-cn",
-  "plugins": ["toc", "-search", "search-pro", "disqus"],
+  "language": "zh-hans",
+  "plugins": ["toc", "-search", "search-pro", "disqus", "prism", "-highlight"],
   "pluginsConfig": {
     "search-pro": {
       "cutWordLib": "nodejieba"
     },
     "disqus": {
       "shortName": "cookingjs"
-    }
-  },
-  "links": {
-    "sharing": {
-      "facebook": false,
-      "twitter": false
     }
   }
 }

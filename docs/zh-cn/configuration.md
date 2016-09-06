@@ -1,6 +1,6 @@
 
 # 配置参数
-cooking 包装了一些 webpack 配置项，所提供的配置参数满足多数项目的基本需求。
+cooking 包装了一些 webpack 配置项，所提供的配置参数满足多数项目的基本需求。1.0 表示 cooking@1.0.0 才有。
 
 <!-- toc -->
 
@@ -88,7 +88,7 @@ HTML 模板文件，使用 [html-webpack-plugin](https://github.com/ampedandwire
 ```
 
 ## devServer
-内置了一个 [webpack-dev-server](http://webpack.github.io/docs/webpack-dev-server.html) 方便进行 Web App 开发。配置参数与其基本一致。
+内置了一个 [webpack-dev-server](http://webpack.github.io/docs/webpack-dev-server.html) 方便进行 Web App 开发。配置参数与其基本一致。不同 webpack 的 API 版本略有差异。
 ```javascript
 // 开启默认配置的 dev Server，浏览器访问 http://localhost:8080
 {
@@ -190,7 +190,7 @@ HTML 模板文件，使用 [html-webpack-plugin](https://github.com/ampedandwire
 ```
 
 ## moduleName
-如果设置 `format` 为 'umd' 或 'amd' 就必须设置该项
+webpack 的 output.library
 ```javascript
 {
   moduleName: ''
@@ -207,6 +207,16 @@ webpack 的 [chunk](http://webpack.github.io/docs/list-of-plugins.html#commonsch
   },
 
   chunk: 'vendor'
+}
+
+// 或者传入数组
+{
+  entry: {
+    app: './src/entry.js',
+    vendor: ['vue', 'vue-router']
+  },
+
+  chunk: ['vendor', 'manifest']
 }
 
 // 如果需要 CommonsChunkPlugin 的其它配置
@@ -226,22 +236,6 @@ webpack 的 [chunk](http://webpack.github.io/docs/list-of-plugins.html#commonsch
       // (Only use these entries)
     }
   }
-}
-
-// 支持传入数组
-{
-  chunk: [
-    {
-      name: 'chunkA',
-      filename: 'commonsA.js',
-      chunks: ['pageA', 'pageC']
-    },
-    {
-      name: 'chunkB',
-      filename: 'commonsB.js',
-      chunks: ['pageB', 'pageC']
-    }
-  ]
 }
 ```
 
@@ -284,6 +278,69 @@ cooking 默认只提供了 Babel 和 基本 loader，如果我们想开发 vue �
 
 支持指定插件的版本
 extends: ['vue@0.1.4']
+
+
+## alias (1.0)
+配置路径别名，通 webpack 的 resolve.alias
+```javascript
+{
+  alias: {
+    'src': require('path').join(__dirname, './src')
+  }
+}
+```
+
+## externals (1.0)
+webpack 的 externals
+```javascript
+{
+  externals: {
+    'vue': 'vue'
+  }
+}
+```
+
+## postcss (1.0)
+配置 postcss
+```javascript
+{
+  postcss: [
+    require('postcss-cssnext'),
+    require('autoprefixer')
+  ]
+}
+
+// 接受函数
+{
+  postcss: function(webpack) {
+    return [
+      require('postcss-salad')({
+        features: {
+          partialImport: {
+            addDependencyTo: webapck
+          }
+        }
+      })
+    ]
+  }
+}
+```
+
+## minimize (1.0)
+指定是否压缩 js 或者 css，生产环境下默认为 true
+```javascript
+{
+  minimize: false
+}
+
+// 接受传入对象
+{
+  minimize: {
+    js: true,
+    css: true
+  }
+}
+```
 
 -------------
 

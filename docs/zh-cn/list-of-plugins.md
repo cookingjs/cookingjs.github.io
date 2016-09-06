@@ -17,8 +17,8 @@ cooking import vue
 ## CSS 相关
 - [sass](https://github.com/cookingjs/cooking-sass) - sass 配置
 - [less](https://github.com/webjyh/cooking-less) - less 配置 by [webjyh](https://github.com/webjyh)
-- [postcss](https://github.com/cookingjs/cooking-postcss) - postcss-loader, 内置 cssnext 等
-- [saladcss](https://github.com/cookingjs/cooking-saladcss) - 更好用的 CSS 预处理插件 [postcss-salad](http://elemefe.github.io/postcss-salad)
+- [postcss](https://github.com/cookingjs/cooking-postcss)(1.0 弃用) - postcss-loader, 内置 cssnext 等
+- [saladcss](https://github.com/cookingjs/cooking-saladcss)(1.0 弃用) - 更好用的 CSS 预处理插件 [postcss-salad](http://elemefe.github.io/postcss-salad)
 
 ## 测试相关
 - [karma](https://github.com/cookingjs/cooking-karma) - karma 相关依赖

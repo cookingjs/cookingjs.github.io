@@ -5,7 +5,6 @@
 - 开始
   - [介绍](intro.md)
   - [例子](example.md)
-  - [快速上手](quickstart.md)
 - 使用
  - [配置参数](configuration.md)
  - [方法](nodejs-api.md)
