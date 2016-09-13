@@ -68,7 +68,7 @@ cooking.set({
   dist: './dist'
 })
 
-modules.export = cooking.resolve()
+module.exports = cooking.resolve()
 ```
 
 第四步：运行
