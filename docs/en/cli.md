@@ -1,172 +1,174 @@
 # CLI
-提供了基本 init/watch/build 的同时还提供了一组管理插件和脚手架的指令。而且指令也是可扩展的。
+Aside from the basic commands like init/watch/build, cooking provides a set of extensible commands for managing plugins and generators.
 
 <!-- toc -->
 
-## 初始化
+## Initiation
 
 ### `config`
-配置一些信息能方便的使用 cooking
+Before we start, let's briefly configure cooking itself
 ```bash
-# 查看配置
+# view configuration
 $ cooking config
 
-# 配置属性，value 不填则清空
+# configure option. Option will be wiped if value is omitted
 $ cooking config <option> [value]
 ```
-目前支持的配置如下
+For now cooking supports
 ```javascript
 {
-  // 执行 cooking init 默认使用的脚手架
+  // default generator when running cooking init
   "template": "vue",
 
-  // update, init, import 时的镜像，国内用户访问慢的可配置成 taobao 镜像，默认为空
+  // which mirror to use when running cooking update, init and import
+  // taobao mirror is recommended for Chinese users. Default value is void
   "registry": "https://registry.npm.taobao.org",
 
-  // 是否自动检查更新，cooking 版本升级会有提示
+  // if cooking checks updates automatically and display a hint when there is one
   "updateCheck": true,
 
-  // 脚手架会读取配置，省去一次次配置 package.json
+  // generator will read what you assign here, frees you from configuring package.json every time
   "github": "",
   "author": ""
 }
 ```
 
 ### `create <project-name> [generator-name]`
-创建项目目录并执行脚手架
+Creates a project and runs the generator
 ```bash
-# 创建一个 my-project 目录并运行 vue 的脚手架
+# create my-project and run vue generator
 $ cooking my-project vue
 ```
 
 ### `init [generator-name]`
 ```bash
-# 运行脚手架
+# run the generator
+# useful when you already have a project created
 $ cooking init vue
 ```
 
-## 开发
+## Development
 ### `watch`
-启动开发（调试）模式
+Starts develop mode
 ```bash
 $ cooking watch
 ```
 
 - -c --config <configfile>
 
-默认读取 `cooking.conf.js` 配置也指定配置文件
+Specifies config file. Uses `cooking.conf.js` if omitted
 ```bash
 $ cooking watch -c webpack.config.js
 ```
 
-接受传入文件数组，用逗号分隔
+Accepts an array of config files separated by a comma
 ```bash
 $ cooking watch -c cooking.desktop.js,cooking.mobile.js
 ```
 
 ### `build`
-生产模式，生成最终的部署代码
+Starts production mode, and generates code ready for deploy
 ```bash
 $ cooking build
 ```
 
 - -c --config <configfile>
 
-默认读取 `cooking.conf.js` 配置也指定配置文件
+Specifies config file. Uses `cooking.conf.js` if omitted
 ```bash
 $ cooking build -c webpack.config.js
 ```
 
-接受传入文件数组，用逗号分隔
+Accepts an array of config files separated by a comma
 ```bash
 $ cooking watch -c cooking.desktop.js,cooking.mobile.js
 ```
 
 - -p --progress
 
-显示构建进度条。
+Displays a building progress bar
 
 - --no-color
 
-控制台输出信息不显示颜色。
+Console outputs display no color
 
 - --output-public-path
 
-设置 publicPath，会覆盖配置文件中的 publicPath
+Specify publicPath. This will overwrite `publicPath` in your config file
 
 ```shell
 cooking build --output-public-path xxx.cdn.com/
 ```
 
-## 插件
+## Plugins
 
-多个插件用空格分隔。
+Remember to separate multiple plugins with a space
 
 ### `import`
-安装插件[^1]、指令、脚手架
+Installs plugins[^1], commands and generators
 ```bash
-# 安装插件
+# install a plugin
 $ cooking import vue
 
-# 安装指令，指令列表中会多一个 cooking test
+# install a command. This will add 'cooking test' in the command list
 $ cooking import test -c
 ```
 
 - -t --template[^2]
 
-安装脚手架
+Installs generators
 ```bash
 $ cooking import vue -t
 ```
 
 - -r --registry
 
-指定下载镜像，如果配置了 config:registry 会使用配置中的镜像
+// 指定下载镜像，如果配置了 config:registry 会使用配置中的镜像
 ```bash
 $ cooking import vue -r https://registry.npm.taobao.org
 ```
 
 ### `update`
-更新插件、指令
+Updates plugins and commands
 ```bash
-# 更新插件
+# update a plugin
 $ cooking update vue
 
-# 更新指令
+# update a command
 $ cooking update test -c
 ```
 
 - -t -template
 - -r --registry
 
-同 `import`
+Same as `import`
 
 
 ### `remove`
 
-卸载插件、指令
+Removes plugins and commands
 ```bash
-# 卸载插件
+# remove a plugin
 $ cooking remove vue
 
-# 卸载指令
+# remove a command
 $ cooking remove test -c
 ```
 
 - -t -template
 
-同 `import`
+Same as `import`
 
 
 ### `list`
 
-查看安装的指令、插件、脚手架列表
+View a list of installed commands, plugins and generators
 ```bash
 $ cooking list
 ```
 
 ----------
-[^1]: 在配置文件中设置了 `extends: ['vue']` 且插件不存在将会自动执行安装操作
+[^1]: If a nonexistent plugin is referred to in the config file, e.g. `extends: ['vue']`, it will be automatically installed
 
-[^2]: 命名为 `-g --generator` 的话容易有歧义，`cooking import vue -g` 会被误解为全局安装
+[^2]: Using `-g --generator` can be confused with 'globally import', so here `-t --template` is used instead
 

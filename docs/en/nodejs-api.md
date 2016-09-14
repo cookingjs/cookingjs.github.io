@@ -1,9 +1,9 @@
-# 方法
-webpack 的配置中经常会去改动的是 loaders 和 plugin，不过它们传入的是数组类型不方便修改或覆盖。所以这里还提供了新的方法给我们操作配置。
+# Methods
+In webpack, loaders and plugins are frequently modified. But the fact that they only accept arrays as their values makes them hard to update or overwrite. So here some new methods are provided to manipulate them.
 <!-- toc -->
 
 ## set(options: Object)
-设置[基本配置](configuration.md)的方法，会与预配置合并。
+Use `set` to configure what are listed in [configuration](configuration.md). They will be merged with presets.
 ```javascript
 var cooking = require('cooking')
 
@@ -14,14 +14,14 @@ cooking.set({
 ```
 
 ## add(path: String, option: Any)
-如果我们想增加（或是覆盖） loader 或者 plugin 就可以使用该方法。不区分大小写。
+Use `add` to add (or overwrite) loaders or plugins. Case insensitive.
 ```javascript
 cooking.add('loader.es6', {
   test: /\.es6$/,
   loaders: ['babel-loader']
 })
 
-// 将会被翻译成
+// will be parsed to
 {
   module: {
     loaders: [
@@ -34,13 +34,13 @@ cooking.add('loader.es6', {
 }
 ```
 
-如果是增加 plugin
+To add a plugin
 ```javascript
 // var webpack = require('webpack')
-// 会引入 cooking 提供的 webpack，不需要单独安装
+// this imports webpack from cooking, no need to install
 cooking.add('plugin.Banner', new webpack.BannerPlugin(banner, options))
 
-// 将会被翻译成
+// will be parsed to
 {
   plugins: [
    new webpack.BannerPlugin(banner, options)
@@ -49,11 +49,11 @@ cooking.add('plugin.Banner', new webpack.BannerPlugin(banner, options))
 
 ```
 
-其它的配置也可以使用 add 增加（覆盖）
+other configurations can also be added or overwritten by `add`
 ```javascript
 cooking.add('output.filename', '[name].bundle.js')
 
-// 将会被翻译成
+// will be parsed to
 {
   output: {
     filename: [name].bundle.js
@@ -63,13 +63,13 @@ cooking.add('output.filename', '[name].bundle.js')
 ```
 
 ## remove(path: String)
-移除预配置项
+Use `remove` to remove presets
 ```javascript
-// 将 `{ test: /\.json$/, loaders: ['json-loader']}` 删除
+// remove `{ test: /\.json$/, loaders: ['json-loader']}`
 cooking.remove('loader.json')
 ```
 
-默认设置的 loader 包含
+preset loaders are
 - loader.js
 - loader.font
 - loader.image
@@ -78,7 +78,7 @@ cooking.remove('loader.json')
 - loader.css
 - loader.json
 
-默认设置的 plugin 包含
+preset plugins are
 - plugin.occurenceorder
 - plugin.NoErrors
 - plugin.Define
@@ -86,11 +86,11 @@ cooking.remove('loader.json')
 - plugin.ExtractText
 
 ## resolve()
-返回最终的 webpack 配置。loader 和 plugin 的配置在 cooking 里是以 Object 的形式存储的，resolve 会将其转换成数组
+User `resolve` to return the final webpack configuration. Loaders and plugins are stored as Object in cooking, and they will be converted to arrays after `resolve`.
 ```javascript
 var config = cooking.resolve()
 
-// 还可以进一步去修改 webpack 配置，例如增加一个后缀
+// at this point you can still modify the configuration, e.g. adding a suffix
 config.resolve.extensions.push('.json')
 
 module.exports = config
