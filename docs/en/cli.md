@@ -123,7 +123,7 @@ $ cooking import vue -t
 
 - -r --registry
 
-// 指定下载镜像，如果配置了 config:registry 会使用配置中的镜像
+Download specified mirror. This will overwrite config:registry
 ```bash
 $ cooking import vue -r https://registry.npm.taobao.org
 ```
