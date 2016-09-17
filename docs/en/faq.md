@@ -1,36 +1,36 @@
-# 一些问题
+# FAQ
 
-#### 用 Lint 是给出的提示是 Warn 而不是 Error？
+#### Why does Lint report Warn instead of Error?
 
-ESLint 默认是触发 Error，但这将会打断 webpack 的 build[^1]（至少我不希望如此），解决方法是去掉的 NoErrorsPlugin，然而这样又不能保证构建出错不自动中断；另一种方法是把 ESLint 触发 Error 改成 Warn。
+ESLint by default reports Error, but this breaks webpack's build[^1] (in most cases this is undesired). A solution is removing NoErrorsPlugin, but this way webpack does not break even when an error occurs. We use another solution that changes what ESLint reports from Error to Warn
 ```javascript
 eslint: {
   emitWarning: true
 }
 ```
 
-#### loader 能不能用简写？
-如果需要增加新 loader, 或者使用自己的 webpack 配置, 请将 loader 改成完整名字而不是简写。因为用户本地安装了 vue 依赖, 查找路径的顺序[^2]问题会把用户的 vue 模块当作 vue-loader 使用导致报错。[^3]
+#### Can I use a shorthand for a loader?
+If you need to add a new loader or use your webpack configuration, please use the loader's full name instead of a shorthand. Because if the user has vue installed locally, due to the path lookup rule[^2], cooking takes vue module as vue-loader which lead to an error[^3].
 
 ```javascript
-// 应该使用
+// use
 cooking.add('loader.vue', {
   test: /\.vue$/,
   loaders: ['vue-loader']
 })
 
-// 而不是
+// instead of
 cooking.add('loader.vue', {
   test: /\.vue$/,
   loaders: ['vue']
 })
 ```
 
-#### 如何使用不同版本的依赖？
-在你本地安装你需要的依赖即可，优先读取项目目录中的依赖。
+#### How can I use dependencies of different versions across projects?
+Simply install what you need locally. Local dependencies have a higher priority than the global one.
 
-#### 如果我需要用 webpack 里的其它插件，是否需要在本地安装 webpack 依赖？
-不需要。依旧是使用 `require('webpack')` 的方式就可以访问到 cooking 里的 webpack 依赖，除非你想使用其它版本的 webpack 才需要安装。例如
+#### If I need some other plugins of webpack, do I have to install webpack dependencies locally?
+Not if you need another version of webpack. By `require('webpack')` you are granted access to webpack dependencies inside of cooking. For example
 ```javascript
 var webpack = require('webpack')
 var cooking = require('cooking')
@@ -41,21 +41,21 @@ cooking.set({
 
 cooking.add('plugin.banner', new webpack.BannerPlugin('/** comments **/'))
 ```
-同时 cooking 里还内置了其它插件也可以直接 require 获取
+Meanwhile cooking has some other built-in plugins you can use by requiring them
 
 - extract-text-webpack-plugin
 - html-webpack-plugin
 
 
 
-#### 如何使用已经存在的 webpack 配置文件？
-拿 vue-cli 的生成的 webpack 项目举例，如果你不需要使用 vue-cli 生成项目提供的 server 直接使用 cooking 内置的话，在 `build/webpack.dev.conf.js` 加入 `devServer: true` 后执行
+#### How can I use an existing webpack config?
+Take a vue-cli generated project for example. If you prefer the server that comes within cooking over the one provided by vue-cli, you can add `devServer: true` behind `build/webpack.dev.conf.js` and run
 ```bash
 $ cooking watch -c build/webpack.dev.conf.js
 ```
 
-#### Babel 和 ESLint 的配置文件
-虽然提供 Babel 相关依赖，但是并没有给默认配置，需要在项目下面创建一个 .babelrc 和 .eslintrc 文件，内置的依赖可以配置成这样
+#### Babel and ESLint configurations
+Babel-related dependencies are provided without default configurations, so you need to create .babelrc and .eslintrc. Inside them you can configure
 
 .babelrc
 ```json
@@ -73,14 +73,14 @@ $ cooking watch -c build/webpack.dev.conf.js
 }
 ```
 
-#### 执行指令提示模块找不到？
-请检查用户根目录下是否存在 `node_modules` 目录，如果有的话将其删掉。 macOS 用户的路径是在 `~/node_modules`。
+#### Reporting module not found when running a command?
+Please check if `node_modules` directory exists inside your user's root directory, and delete it if there is. For macOS users, the path is `~/node_modules`.
 
 -------------
 [^1]: https://github.com/MoOx/eslint-loader/issues/23
 
-[^2]: cooking 增加了一下 node require 的路径规则，查找顺序先从用户目录查找依赖，再到 cooking 目录下查找。
+[^2]: cooking has added some path lookup rules for node require. It starts from user root path, and if nothing is found, it goes to cooking directory
 
 [^3]: http://stackoverflow.com/questions/29883534/webpack-node-modules-css-index-js-didnt-return-a-function
 
-[^4]: 参考 [cooking-eslint](https://github.com/cookingjs/cooking-lint) 提供的依赖，如果未提供，自己本地安装即可
+[^4]: if a dependency is not provided by [cooking-eslint](https://github.com/cookingjs/cooking-lint), you can install it locally yourself
