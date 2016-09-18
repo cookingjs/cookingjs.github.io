@@ -65,7 +65,7 @@
         data-chapter-title="如何写脚手架"
         data-filepath="create-a-generator.md"
         data-basepath="."
-        data-revision="Tue Sep 13 2016 18:54:39 GMT+0800 (CST)"
+        data-revision="Sun Sep 18 2016 11:52:34 GMT+0800 (CST)"
         data-innerlanguage="en">
     
 
@@ -374,20 +374,16 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="&#x5982;&#x4F55;&#x5199;&#x811A;&#x624B;&#x67B6;">&#x5982;&#x4F55;&#x5199;&#x811A;&#x624B;&#x67B6;</h1>
-<p>&#x5185;&#x7F6E;&#x7684;&#x811A;&#x624B;&#x67B6;&#x5DE5;&#x5177;&#x662F; <a href="https://github.com/slushjs/slush" target="_blank">slush</a>&#xFF0C;&#x76F8;&#x6BD4; <a href="http://yeoman.io/authoring/index.html" target="_blank">yeoman</a> &#x66F4;&#x8F7B;&#x91CF;&#x7EA7;&#x4E14;&#x5199;&#x8D77;&#x6765;&#x4E5F;&#x4F1A;&#x5F88;&#x719F;&#x6089;&#xFF08;&#x7528; Gulp &#x5199;&#x811A;&#x624B;&#x67B6;<sup><a href="#fn_1" id="reffn_1">1</a></sup>&#xFF09;&#x3002;</p>
-<p>&#x65E0;&#x8BBA;&#x4F60;&#x4F1A;&#x4E0D;&#x4F1A;&#x7528; Gulp&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x901A;&#x8FC7;&#x63D0;&#x4F9B;&#x7684;&#x811A;&#x624B;&#x67B6;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x811A;&#x624B;&#x67B6;&#xFF0C;&#x57FA;&#x672C;&#x4E0A;&#x6539;&#x6539;&#x914D;&#x7F6E;&#x5C31;&#x80FD;&#x5199;&#x5B8C;&#x4E00;&#x4E2A;&#x811A;&#x624B;&#x67B6;</p>
+                        <h1 id="how-to-write-a-generator">How to write a generator</h1>
+<p>We use <a href="https://github.com/slushjs/slush" target="_blank">slush</a> as the built-in generator tool. It is lighter than <a href="http://yeoman.io/authoring/index.html" target="_blank">yeoman</a> and feels familiar if you know how to write a generator with Gulp.</p>
+<p>But don&apos;t worry if you have never used Gulp. You can always write a generator with the provided boilerplate, and all you have to do is modifying some parameters.</p>
 <pre><code class="lang-bash">$ cooking init generator
 </code></pre>
-<h2 id="&#x89C4;&#x5B9A;">&#x89C4;&#x5B9A;</h2>
+<h2 id="regulations">Regulations</h2>
 <ul>
-<li>&#x811A;&#x624B;&#x67B6;&#x9879;&#x76EE;&#x7528;<strong> slush-cooking-* </strong>&#x7684;&#x547D;&#x540D;</li>
-<li>&#x5DF2;&#x7ECF;&#x63D0;&#x4F9B;&#x4E86; <a href="https://github.com/cookingjs/generator-package-cooking" target="_blank">Gulp &#x7B49;&#x76F8;&#x5173;&#x4F9D;&#x8D56;</a>&#xFF0C;&#x53D1;&#x5E03;&#x65F6;&#x4E0D;&#x9700;&#x8981;&#x5E26;&#x4E0A;&#xFF0C; &#x6240;&#x4EE5;&#x5982;&#x679C;&#x662F;&#x8981;&#x6D4B;&#x8BD5;&#x7684;&#x8BDD;&#xFF0C;&#x8BF7;&#x81EA;&#x884C;&#x5B89;&#x88C5; Gulp &#x7B49;&#x76F8;&#x5173;&#x4F9D;&#x8D56; &#x4E3A; <code>devDependencies</code></li>
+<li>Name your generator project <strong> slush-cooking-* </strong></li>
+<li><a href="https://github.com/cookingjs/generator-package-cooking" target="_blank">Gulp-related dependencies</a> are provided, so don&apos;t register them in <code>dependencies</code> when publishing. If you need to run tests, please install Gulp-related dependencies as <code>devDependencies</code></li>
 </ul>
-<hr>
-<blockquote id="fn_1">
-<sup>1</sup>. &#x4E0D;&#x6E05;&#x695A; generator &#x7FFB;&#x8BD1;&#x6210;&#x4EC0;&#x4E48;&#x597D;&#xFF0C;&#x76F4;&#x63A5;&#x53EB; scaffolding&#xFF08;&#x811A;&#x624B;&#x67B6;&#xFF09; &#x4E86;&#x3002;<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#x21A9;</a>
-</blockquote>
 
                     
                     </section>

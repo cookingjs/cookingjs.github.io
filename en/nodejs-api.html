@@ -65,7 +65,7 @@
         data-chapter-title="方法"
         data-filepath="nodejs-api.md"
         data-basepath="."
-        data-revision="Tue Sep 13 2016 18:54:39 GMT+0800 (CST)"
+        data-revision="Sun Sep 18 2016 11:52:34 GMT+0800 (CST)"
         data-innerlanguage="en">
     
 
@@ -374,8 +374,8 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="&#x65B9;&#x6CD5;">&#x65B9;&#x6CD5;</h1>
-<p>webpack &#x7684;&#x914D;&#x7F6E;&#x4E2D;&#x7ECF;&#x5E38;&#x4F1A;&#x53BB;&#x6539;&#x52A8;&#x7684;&#x662F; loaders &#x548C; plugin&#xFF0C;&#x4E0D;&#x8FC7;&#x5B83;&#x4EEC;&#x4F20;&#x5165;&#x7684;&#x662F;&#x6570;&#x7EC4;&#x7C7B;&#x578B;&#x4E0D;&#x65B9;&#x4FBF;&#x4FEE;&#x6539;&#x6216;&#x8986;&#x76D6;&#x3002;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x65B0;&#x7684;&#x65B9;&#x6CD5;&#x7ED9;&#x6211;&#x4EEC;&#x64CD;&#x4F5C;&#x914D;&#x7F6E;&#x3002;</p>
+                        <h1 id="methods">Methods</h1>
+<p>In webpack, loaders and plugins are frequently modified. But the fact that they only accept arrays as their values makes them hard to update or overwrite. So here some new methods are provided to manipulate them.</p>
 <!-- toc -->
 <ul>
 <li><a href="#setoptions-object">set(options: Object)</a></li>
@@ -385,7 +385,7 @@
 </ul>
 <!-- toc stop -->
 <h2 id="setoptions-object">set(options: Object)</h2>
-<p>&#x8BBE;&#x7F6E;<a href="configuration.html">&#x57FA;&#x672C;&#x914D;&#x7F6E;</a>&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4F1A;&#x4E0E;&#x9884;&#x914D;&#x7F6E;&#x5408;&#x5E76;&#x3002;</p>
+<p>Use <code>set</code> to configure what are listed in <a href="configuration.html">configuration</a>. They will be merged with presets.</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> cooking = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;cooking&apos;</span>)
 
 cooking.set({
@@ -394,13 +394,13 @@ cooking.set({
 })
 </code></pre>
 <h2 id="addpath-string-option-any">add(path: String, option: Any)</h2>
-<p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x60F3;&#x589E;&#x52A0;&#xFF08;&#x6216;&#x662F;&#x8986;&#x76D6;&#xFF09; loader &#x6216;&#x8005; plugin &#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;&#x3002;&#x4E0D;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;&#x3002;</p>
+<p>Use <code>add</code> to add (or overwrite) loaders or plugins. Case insensitive.</p>
 <pre><code class="lang-javascript">cooking.add(<span class="hljs-string">&apos;loader.es6&apos;</span>, {
   test: <span class="hljs-regexp">/\.es6$/</span>,
   loaders: [<span class="hljs-string">&apos;babel-loader&apos;</span>]
 })
 
-<span class="hljs-comment">// &#x5C06;&#x4F1A;&#x88AB;&#x7FFB;&#x8BD1;&#x6210;</span>
+<span class="hljs-comment">// will be parsed to</span>
 {
   <span class="hljs-built_in">module</span>: {
     loaders: [
@@ -412,22 +412,22 @@ cooking.set({
   }
 }
 </code></pre>
-<p>&#x5982;&#x679C;&#x662F;&#x589E;&#x52A0; plugin</p>
+<p>To add a plugin</p>
 <pre><code class="lang-javascript"><span class="hljs-comment">// var webpack = require(&apos;webpack&apos;)</span>
-<span class="hljs-comment">// &#x4F1A;&#x5F15;&#x5165; cooking &#x63D0;&#x4F9B;&#x7684; webpack&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x5355;&#x72EC;&#x5B89;&#x88C5;</span>
+<span class="hljs-comment">// this imports webpack from cooking, no need to install</span>
 cooking.add(<span class="hljs-string">&apos;plugin.Banner&apos;</span>, <span class="hljs-keyword">new</span> webpack.BannerPlugin(banner, options))
 
-<span class="hljs-comment">// &#x5C06;&#x4F1A;&#x88AB;&#x7FFB;&#x8BD1;&#x6210;</span>
+<span class="hljs-comment">// will be parsed to</span>
 {
   plugins: [
    <span class="hljs-keyword">new</span> webpack.BannerPlugin(banner, options)
   ]
 }
 </code></pre>
-<p>&#x5176;&#x5B83;&#x7684;&#x914D;&#x7F6E;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; add &#x589E;&#x52A0;&#xFF08;&#x8986;&#x76D6;&#xFF09;</p>
+<p>other configurations can also be added or overwritten by <code>add</code></p>
 <pre><code class="lang-javascript">cooking.add(<span class="hljs-string">&apos;output.filename&apos;</span>, <span class="hljs-string">&apos;[name].bundle.js&apos;</span>)
 
-<span class="hljs-comment">// &#x5C06;&#x4F1A;&#x88AB;&#x7FFB;&#x8BD1;&#x6210;</span>
+<span class="hljs-comment">// will be parsed to</span>
 {
   output: {
     filename: [name].bundle.js
@@ -435,11 +435,11 @@ cooking.add(<span class="hljs-string">&apos;plugin.Banner&apos;</span>, <span cl
 }
 </code></pre>
 <h2 id="removepath-string">remove(path: String)</h2>
-<p>&#x79FB;&#x9664;&#x9884;&#x914D;&#x7F6E;&#x9879;</p>
-<pre><code class="lang-javascript"><span class="hljs-comment">// &#x5C06; `{ test: /\.json$/, loaders: [&apos;json-loader&apos;]}` &#x5220;&#x9664;</span>
+<p>Use <code>remove</code> to remove presets</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// remove `{ test: /\.json$/, loaders: [&apos;json-loader&apos;]}`</span>
 cooking.remove(<span class="hljs-string">&apos;loader.json&apos;</span>)
 </code></pre>
-<p>&#x9ED8;&#x8BA4;&#x8BBE;&#x7F6E;&#x7684; loader &#x5305;&#x542B;</p>
+<p>preset loaders are</p>
 <ul>
 <li>loader.js</li>
 <li>loader.font</li>
@@ -449,7 +449,7 @@ cooking.remove(<span class="hljs-string">&apos;loader.json&apos;</span>)
 <li>loader.css</li>
 <li>loader.json</li>
 </ul>
-<p>&#x9ED8;&#x8BA4;&#x8BBE;&#x7F6E;&#x7684; plugin &#x5305;&#x542B;</p>
+<p>preset plugins are</p>
 <ul>
 <li>plugin.occurenceorder</li>
 <li>plugin.NoErrors</li>
@@ -458,10 +458,10 @@ cooking.remove(<span class="hljs-string">&apos;loader.json&apos;</span>)
 <li>plugin.ExtractText</li>
 </ul>
 <h2 id="resolve">resolve()</h2>
-<p>&#x8FD4;&#x56DE;&#x6700;&#x7EC8;&#x7684; webpack &#x914D;&#x7F6E;&#x3002;loader &#x548C; plugin &#x7684;&#x914D;&#x7F6E;&#x5728; cooking &#x91CC;&#x662F;&#x4EE5; Object &#x7684;&#x5F62;&#x5F0F;&#x5B58;&#x50A8;&#x7684;&#xFF0C;resolve &#x4F1A;&#x5C06;&#x5176;&#x8F6C;&#x6362;&#x6210;&#x6570;&#x7EC4;</p>
+<p>User <code>resolve</code> to return the final webpack configuration. Loaders and plugins are stored as Object in cooking, and they will be converted to arrays after <code>resolve</code>.</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> config = cooking.resolve()
 
-<span class="hljs-comment">// &#x8FD8;&#x53EF;&#x4EE5;&#x8FDB;&#x4E00;&#x6B65;&#x53BB;&#x4FEE;&#x6539; webpack &#x914D;&#x7F6E;&#xFF0C;&#x4F8B;&#x5982;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x540E;&#x7F00;</span>
+<span class="hljs-comment">// at this point you can still modify the configuration, e.g. adding a suffix</span>
 config.resolve.extensions.push(<span class="hljs-string">&apos;.json&apos;</span>)
 
 <span class="hljs-built_in">module</span>.exports = config

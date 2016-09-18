@@ -65,7 +65,7 @@
         data-chapter-title="配置参数"
         data-filepath="configuration.md"
         data-basepath="."
-        data-revision="Tue Sep 13 2016 18:54:39 GMT+0800 (CST)"
+        data-revision="Sun Sep 18 2016 11:52:34 GMT+0800 (CST)"
         data-innerlanguage="zh-cn">
     
 
@@ -427,8 +427,8 @@
 </code></pre>
 <h2 id="template">template</h2>
 <p>HTML &#x6A21;&#x677F;&#x6587;&#x4EF6;&#xFF0C;&#x4F7F;&#x7528; <a href="https://github.com/ampedandwired/html-webpack-plugin" target="_blank">html-webpack-plugin</a> &#x751F;&#x6210;&#x3002;&#x63A5;&#x53D7; Boolean|String|Object &#x7C7B;&#x578B;</p>
-<pre><code class="lang-javascript">{
-  <span class="hljs-comment">// &#x81EA;&#x52A8;&#x751F;&#x6210;&#x4E00;&#x4E2A; index.html &#x6587;&#x4EF6;</span>
+<pre><code class="lang-javascript">  <span class="hljs-comment">// &#x81EA;&#x52A8;&#x751F;&#x6210;&#x4E00;&#x4E2A; index.html &#x6587;&#x4EF6;</span>
+{
   template: <span class="hljs-literal">true</span>
 }
 
@@ -478,7 +478,7 @@
 </code></pre>
 <h2 id="devserver">devServer</h2>
 <p>&#x5185;&#x7F6E;&#x4E86;&#x4E00;&#x4E2A; <a href="http://webpack.github.io/docs/webpack-dev-server.html" target="_blank">webpack-dev-server</a> &#x65B9;&#x4FBF;&#x8FDB;&#x884C; Web App &#x5F00;&#x53D1;&#x3002;&#x914D;&#x7F6E;&#x53C2;&#x6570;&#x4E0E;&#x5176;&#x57FA;&#x672C;&#x4E00;&#x81F4;&#x3002;&#x4E0D;&#x540C; webpack &#x7684; API &#x7248;&#x672C;&#x7565;&#x6709;&#x5DEE;&#x5F02;&#x3002;</p>
-<pre><code class="lang-javascript"><span class="hljs-comment">// &#x5F00;&#x542F;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x7684; dev Server&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE; http://localhost:8080</span>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x5F00;&#x542F;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x7684; devServer&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE; http://localhost:8080</span>
 {
   devServer: <span class="hljs-literal">true</span>
 }
@@ -553,7 +553,7 @@
 }
 </code></pre>
 <h2 id="format">format</h2>
-<p>&#x53EF;&#x6307;&#x5B9A;&#x6A21;&#x5757;&#x7684;&#x8F93;&#x51FA;&#x7C7B;&#x578B;&#x3002;&#x63A5;&#x53D7; amd|cjs|umd|var&#xFF0C;&#x5176;&#x4E2D; cjs &#x4F1A;&#x88AB;&#x7FFB;&#x8BD1;&#x6210;  webpack &#x7684; commonjs2</p>
+<p>&#x53EF;&#x6307;&#x5B9A;&#x6A21;&#x5757;&#x7684;&#x8F93;&#x51FA;&#x7C7B;&#x578B;&#x3002;&#x63A5;&#x53D7; amd|cjs|umd|var&#xFF0C;&#x5176;&#x4E2D; cjs &#x4F1A;&#x88AB;&#x7FFB;&#x8BD1;&#x6210; webpack &#x7684; commonjs2</p>
 <pre><code class="lang-javascript">{
   format: <span class="hljs-string">&apos;var&apos;</span>
 }
@@ -590,16 +590,16 @@
   chunk: {
     <span class="hljs-string">&apos;chunk-vendor&apos;</span>: {
       name: <span class="hljs-string">&apos;commons&apos;</span>, <span class="hljs-comment">// &#x4E0D;&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;&#x952E;&#x540D;</span>
-      <span class="hljs-comment">// (the commons chunk name)</span>
+      <span class="hljs-comment">// (common chunk name)</span>
 
       filename: <span class="hljs-string">&apos;commons.js&apos;</span>, <span class="hljs-comment">// &#x4E0D;&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x6839;&#x636E;&#x952E;&#x540D;&#x751F;&#x6210;&#xFF08;&#x751F;&#x4EA7;&#x6A21;&#x5F0F;&#x4E0B;&#x5E26; hash&#xFF09;</span>
-      <span class="hljs-comment">// (the filename of the commons chunk)</span>
+      <span class="hljs-comment">// (filename of the common chunk)</span>
 
       <span class="hljs-comment">// minChunks: 3,</span>
-      <span class="hljs-comment">// (Modules must be shared between 3 entries)</span>
+      <span class="hljs-comment">// (modules must be shared among at least 3 entries)</span>
 
       <span class="hljs-comment">// chunks: [&apos;pageA&apos;, &apos;pageB&apos;],</span>
-      <span class="hljs-comment">// (Only use these entries)</span>
+      <span class="hljs-comment">// (only use these entries)</span>
     }
   }
 }
@@ -632,8 +632,11 @@
   }
 }
 </code></pre>
-<p>&#x652F;&#x6301;&#x6307;&#x5B9A;&#x63D2;&#x4EF6;&#x7684;&#x7248;&#x672C;
-extends: [&apos;vue@0.1.4&apos;]</p>
+<p>&#x652F;&#x6301;&#x6307;&#x5B9A;&#x63D2;&#x4EF6;&#x7684;&#x7248;&#x672C;</p>
+<pre><code class="lang-javascript">{
+  extends: [<span class="hljs-string">&apos;vue@0.1.4&apos;</span>]
+}
+</code></pre>
 <h2 id="alias-10">alias (1.0)</h2>
 <p>&#x914D;&#x7F6E;&#x8DEF;&#x5F84;&#x522B;&#x540D;&#xFF0C;&#x901A; webpack &#x7684; resolve.alias</p>
 <pre><code class="lang-javascript">{
@@ -690,7 +693,7 @@ extends: [&apos;vue@0.1.4&apos;]</p>
 </code></pre>
 <hr>
 <blockquote id="fn_1">
-<sup>1</sup>. &#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#x6211;&#x4EEC;&#x4F1A;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#x4F8B;&#x5982;<code>fe.project</code>&#x4E3A;&#x90E8;&#x7F72;&#x76EE;&#x5F55;&#xFF0C;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x4F1A;&#x62F7;&#x8D1D;&#x5230;&#x8BE5;&#x76EE;&#x5F55;&#x4E0B;&#x3002;&#x5982;&#x679C;&#x90E8;&#x7F72; <code>fe.project</code> &#x76EE;&#x5F55;&#xFF0C;&#x57DF;&#x540D;&#x6307;&#x5411; <code>fs.project/dist/index.html</code> &#x6587;&#x4EF6;&#xFF0C;&#x90A3;&#x4E48; <code>app.js</code> &#x76F8;&#x5BF9;&#x4E8E;&#x57DF;&#x540D;&#x7684;&#x8DEF;&#x5F84;&#x5C31;&#x53D8;&#x6210;&#x4E86; <code>/dist/app.js</code>&#xFF0C;&#x6240;&#x4EE5;&#x914D;&#x7F6E; <strong>publicPath</strong> &#x7684;&#x4F5C;&#x7528;&#x5C31;&#x5728;&#x4E8E;&#x6B64;&#x3002;&#x540C;&#x65F6;&#x4E5F;&#x53EF;&#x4EE5;&#x628A;&#x5B83;&#x914D;&#x5236;&#x6210;&#x4E00;&#x4E2A; CDN &#x8DEF;&#x5F84;&#x3002;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x628A; <code>dist</code> &#x5F53;&#x4F5C;&#x90E8;&#x7F72;&#x76EE;&#x5F55;&#xFF0C;&#x57DF;&#x540D;&#x6307;&#x5411; <code>dist/index.html</code> &#x6587;&#x4EF6;&#xFF0C;&#x90A3;&#x4E48; <code>app.js</code> &#x7684;&#x8DEF;&#x5F84;&#x5C31;&#x662F; <code>/app.js</code> &#x5C31;&#x628A; publicPath &#x8BBE;&#x7F6E;&#x6210; <code>/</code> &#x5373;&#x53EF;&#x3002;<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#x21A9;</a>
+<sup>1</sup>. &#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#x6211;&#x4EEC;&#x4F1A;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#x4F8B;&#x5982;<code>fe.project</code>&#x4E3A;&#x90E8;&#x7F72;&#x76EE;&#x5F55;&#xFF0C;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x4F1A;&#x62F7;&#x8D1D;&#x5230;&#x8BE5;&#x76EE;&#x5F55;&#x4E0B;&#x3002;&#x5982;&#x679C;&#x90E8;&#x7F72; <code>fe.project</code> &#x76EE;&#x5F55;&#xFF0C;&#x57DF;&#x540D;&#x6307;&#x5411; <code>fe.project/dist/index.html</code> &#x6587;&#x4EF6;&#xFF0C;&#x90A3;&#x4E48; <code>app.js</code> &#x76F8;&#x5BF9;&#x4E8E;&#x57DF;&#x540D;&#x7684;&#x8DEF;&#x5F84;&#x5C31;&#x53D8;&#x6210;&#x4E86; <code>/dist/app.js</code>&#xFF0C;&#x6240;&#x4EE5;&#x914D;&#x7F6E; <strong>publicPath</strong> &#x7684;&#x4F5C;&#x7528;&#x5C31;&#x5728;&#x4E8E;&#x6B64;&#x3002;&#x540C;&#x65F6;&#x4E5F;&#x53EF;&#x4EE5;&#x628A;&#x5B83;&#x914D;&#x7F6E;&#x6210;&#x4E00;&#x4E2A; CDN &#x8DEF;&#x5F84;&#x3002;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x628A; <code>dist</code> &#x5F53;&#x4F5C;&#x90E8;&#x7F72;&#x76EE;&#x5F55;&#xFF0C;&#x57DF;&#x540D;&#x6307;&#x5411; <code>dist/index.html</code> &#x6587;&#x4EF6;&#xFF0C;&#x90A3;&#x4E48; <code>app.js</code> &#x7684;&#x8DEF;&#x5F84;&#x5C31;&#x662F; <code>/app.js</code>&#xFF0C;&#x628A; publicPath &#x8BBE;&#x7F6E;&#x6210; <code>/</code> &#x5373;&#x53EF;&#x3002;<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#x21A9;</a>
 </blockquote>
 <blockquote id="fn_2">
 <sup>2</sup>. &#x66F4;&#x591A;&#x8BBE;&#x7F6E;&#x9879;&#x53C2;&#x8003; <a href="https://github.com/cookingjs/cooking-postcss#readme" target="_blank">cooking-postcss</a> &#x63D2;&#x4EF6;&#x6587;&#x6863;<a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#x21A9;</a>

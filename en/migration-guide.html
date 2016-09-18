@@ -65,7 +65,7 @@
         data-chapter-title="迁移指南"
         data-filepath="migration-guide.md"
         data-basepath="."
-        data-revision="Tue Sep 13 2016 18:54:39 GMT+0800 (CST)"
+        data-revision="Sun Sep 18 2016 11:52:34 GMT+0800 (CST)"
         data-innerlanguage="en">
     
 
@@ -374,10 +374,10 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="&#x8FC1;&#x79FB;&#x6307;&#x5357;">&#x8FC1;&#x79FB;&#x6307;&#x5357;</h1>
-<p>&#x4EE5; vue-cli &#x521B;&#x5EFA;&#x7684;&#x9879;&#x76EE;&#x4E3E;&#x4F8B;&#x3002;</p>
-<h2 id="&#x5F00;&#x59CB;">&#x5F00;&#x59CB;</h2>
-<p>&#x65B0;&#x5EFA;&#x4E00;&#x4E2A; cooking.conf.js &#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x6DFB;&#x52A0;&#x57FA;&#x672C;&#x914D;&#x7F6E;</p>
+                        <h1 id="migration-guide">Migration guide</h1>
+<p>In this guide we will migrate a project created by vue-cli.</p>
+<h2 id="preparation">Preparation</h2>
+<p>Create cooking.conf.js, and add some configs</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> cooking = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;cooking&apos;</span>)
 
 cooking.set({
@@ -387,7 +387,7 @@ cooking.set({
 <span class="hljs-built_in">module</span>.exports = cooking.resolve()
 </code></pre>
 <h2 id="entry">entry</h2>
-<p>&#x540C; webapck entry &#x76F4;&#x63A5;&#x62F7;&#x8D1D;&#x8FDB;&#x6765;</p>
+<p>Just copy what is inside webpack entry</p>
 <pre><code class="lang-javascript">{
   entry: {
     app: <span class="hljs-string">&apos;./src/main.js&apos;</span>
@@ -395,7 +395,7 @@ cooking.set({
 }
 </code></pre>
 <h2 id="output">output</h2>
-<p>&#x9ED8;&#x8BA4;&#x8F93;&#x51FA;&#x8DEF;&#x5F84;&#x4E3A; <code>./dist</code>&#xFF0C;publicPath &#x4E3A; <code>/dist/</code>&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x81F4;&#x53EF;&#x4E0D;&#x8BBE;&#x7F6E;</p>
+<p>The default output path and publicPath are both <code>./dist</code>, so you can omit them if that&apos;s your case</p>
 <pre><code class="lang-javascript">{
   publicPath: <span class="hljs-string">&apos;/dist/&apos;</span>,
   dist: <span class="hljs-string">&apos;./dist&apos;</span>,
@@ -403,13 +403,13 @@ cooking.set({
 }
 </code></pre>
 <h2 id="loader">loader</h2>
-<p>cooking &#x9ED8;&#x8BA4;&#x63D0;&#x4F9B;&#x4E86; <code>css</code>&#x3001;<code>html</code>&#x3001;<code>images</code>&#x3001;<code>json</code> &#x7684; loader&#xFF0C;&#x56E0;&#x6B64; <code>build/webpack.base.conf.js</code> &#x4E2D;&#x7684; loader &#x57FA;&#x672C;&#x5305;&#x542B;&#xFF0C;&#x989D;&#x5916;&#x7684;&#x9700;&#x8981; vue-loader &#x548C; eslint-loader&#xFF0C;&#x53EA;&#x9700;&#x5728;&#x914D;&#x7F6E;&#x4E2D;&#x589E;&#x52A0;&#x63D2;&#x4EF6;</p>
+<p>By default cooking provides loaders for <code>css</code>, <code>html</code>, <code>images</code> and <code>json</code>. They basically cover all loaders inside <code>build/webpack.base.conf.js</code>. You just need to add plugins for the additional vue-loader and eslint-loader</p>
 <pre><code class="lang-javascript">{
   extends: [<span class="hljs-string">&apos;vue&apos;</span>, <span class="hljs-string">&apos;lint&apos;</span>]
 }
 </code></pre>
 <h2 id="resolve">resolve</h2>
-<p>alias &#x9700;&#x8981;&#x81EA;&#x5DF1;&#x914D;&#x7F6E;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E0D;&#x63D0;&#x4F9B;</p>
+<p>You need to configure alias yourself. No default is provided</p>
 <pre><code class="lang-javascript">{
   alias: {
     <span class="hljs-string">&apos;src&apos;</span>: path.resolve(__dirname, <span class="hljs-string">&apos;../src&apos;</span>),
@@ -419,15 +419,15 @@ cooking.set({
 }
 </code></pre>
 <h2 id="dev-server">dev server</h2>
-<p>cooking &#x63D0;&#x4F9B;&#x7684; dev server &#x4E3A; webpack &#x63D0;&#x4F9B;&#x7684; webpack-dev-server&#xFF0C;&#x914D;&#x7F6E;&#x53C2;&#x6570;<a href="http://webpack.github.io/docs/webpack-dev-server.html" target="_blank">&#x53C2;&#x8003;&#x6587;&#x6863;</a>&#xFF0C;&#x53EF;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;</p>
+<p>cooking uses webpack&apos;s webpack-dev-server as its dev server, so you can use the default configuration. For more detail please refer to the <a href="http://webpack.github.io/docs/webpack-dev-server.html" target="_blank">documentation</a></p>
 <pre><code class="lang-javascript">{
   devServer: <span class="hljs-literal">true</span>
 }
 
-<span class="hljs-comment">// &#x4EE5;&#x4E0B;&#x662F;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;</span>
+<span class="hljs-comment">// default configuration</span>
 {
   devServer: {
-   <span class="hljs-comment">// &#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x8FD9;&#x91CC;&#x7684; publicPath &#x4F1A;&#x66FF;&#x6362;&#x6389;&#x4E0A;&#x9762;&#x914D;&#x7F6E;&#x7684; publicPath&#xFF0C;&#x4E0E;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x76F8;&#x53CD;</span>
+   <span class="hljs-comment">// note that publicPath here will overwrite what you specified above. This is different from webpack&apos;s webpack-dev-server</span>
     publicPath: <span class="hljs-string">&apos;/&apos;</span>,
     port: <span class="hljs-number">8080</span>,
     hot: <span class="hljs-literal">true</span>,
@@ -441,29 +441,29 @@ cooking.set({
 }
 </code></pre>
 <h2 id="extracttextplugin">ExtractTextPlugin</h2>
-<p>&#x53EA;&#x9700;&#x914D;&#x7F6E; extractCSS &#x53C2;&#x6570;&#x5373;&#x53EF;</p>
+<p>Just specify extractCSS</p>
 <pre><code class="lang-javascript">{
   extractCSS: <span class="hljs-literal">true</span>
 }
 </code></pre>
 <h2 id="htmlwebpackplugin">HtmlWebpackPlugin</h2>
-<p>&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x5982;&#x679C;&#x65E0;&#x7279;&#x6B8A;&#x914D;&#x7F6E;&#x76F4;&#x63A5;&#x8BBE;&#x7F6E;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</p>
+<p>For your template file, if no special configuring is needed, simply specify its path</p>
 <pre><code class="lang-javascript">  template: <span class="hljs-string">&apos;./index.html&apos;</span>
 </code></pre>
-<p>&#x5F53;&#x9700;&#x8981;&#x5728;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x4E2D;&#x5F15;&#x5165;&#x53D8;&#x91CF;&#x65F6;&#xFF0C;&#x5E94;&#x5199;&#x4E3A; <code>&lt;%= someVariable %&gt;</code>&#xFF08;&#x8BE6;&#x89C1;<a href="https://github.com/ampedandwired/html-webpack-plugin/blob/master/migration.md#templating-and-variables" target="_blank">&#x5B98;&#x65B9;&#x6587;&#x6863;</a>&#xFF09;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<p>If a template file has variables, it should be written as <code>&lt;%= someVariable %&gt;</code> (see <a href="https://github.com/ampedandwired/html-webpack-plugin/blob/master/migration.md#templating-and-variables" target="_blank">documentation</a>). For example</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">%=</span> <span class="hljs-attribute">htmlWebpackPlugin.options.title</span> %&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
 </code></pre>
-<p>&#x6B64;&#x5916;&#xFF0C;&#x7531;&#x4E8E;<a href="https://github.com/ampedandwired/html-webpack-plugin/issues/223" target="_blank">&#x8FD9;&#x4E2A;&#x95EE;&#x9898;</a>&#x7684;&#x5B58;&#x5728;&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x505A;&#x8FDB;&#x4E00;&#x6B65;&#x5904;&#x7406;&#x624D;&#x80FD;&#x4FDD;&#x8BC1;&#x53D8;&#x91CF;&#x88AB;&#x6B63;&#x786E;&#x89E3;&#x6790;&#xFF0C;&#x76EE;&#x524D;&#x5171;&#x6709; 3 &#x4E2A;&#x65B9;&#x6848;&#xFF1A;</p>
+<p>Besides, due to <a href="https://github.com/ampedandwired/html-webpack-plugin/issues/223" target="_blank">this problem</a>, some more measures have to be taken to guarantee the variables being parsed correctly. For now we have 3 plans</p>
 <ul>
-<li>&#x65B9;&#x6848;&#x4E00;&#xFF08;&#x63A8;&#x8350;&#xFF09;&#xFF1A;&#x5C06;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x7684;&#x540E;&#x7F00;&#x540D;&#x6539;&#x4E3A; <code>tpl</code>&#xFF0C;&#x4F8B;&#x5982;&#x6A21;&#x677F;&#x6587;&#x4EF6; <code>index.html</code> &#x9700;&#x6539;&#x4E3A; <code>index.tpl</code>&#xFF1B;</li>
-<li>&#x65B9;&#x6848;&#x4E8C;&#xFF1A;&#x5728;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684; <code>loader</code> &#x4E2D;&#x5C06;&#x8BE5;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x6392;&#x9664;&#xFF1A;<pre><code class="lang-javascript">cooking.add(<span class="hljs-string">&apos;loader.html&apos;</span>, {
+<li>Plan A (recommended): change the template&apos;s filename extension to <code>tpl</code>, e.g. rename <code>index.html</code> to <code>index.tpl</code>&#xFF1B;</li>
+<li>Plan B: exclude this template inside <code>loader</code> <pre><code class="lang-javascript">cooking.add(<span class="hljs-string">&apos;loader.html&apos;</span>, {
 test: <span class="hljs-regexp">/\.html$/</span>,
 loader: <span class="hljs-string">&apos;html&apos;</span>,
 exclude: <span class="hljs-regexp">/^index\.html$/</span>
 })
 </code></pre>
 </li>
-<li>&#x65B9;&#x6848;&#x4E09;&#xFF1A;&#x4F7F;&#x7528; <code>underscore-template-loader</code> &#x5904;&#x7406;&#x8BE5;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#xFF1A;<pre><code class="lang-javascript">template: {
+<li>Plan C: use <code>underscore-template-loader</code> to handle this template<pre><code class="lang-javascript">template: {
 <span class="hljs-string">&apos;index.html&apos;</span>: {
  template: <span class="hljs-string">&apos;underscore-template!./index.html&apos;</span>
 }
@@ -471,8 +471,8 @@ exclude: <span class="hljs-regexp">/^index\.html$/</span>
 </code></pre>
 </li>
 </ul>
-<h2 id="babel-&#x548C;-eslint-&#x914D;&#x7F6E;">babel &#x548C; eslint &#x914D;&#x7F6E;</h2>
-<p>&#x63A8;&#x8350;&#x505A;&#x6CD5;&#x662F;&#x5728;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x521B;&#x5EFA; .babelrc&#x3001; .eslintrc &#x6587;&#x4EF6;</p>
+<h2 id="babel-and-eslint-configs">babel and eslint configs</h2>
+<p>Creating .babelrc and .eslintrc in your project directory is recommended</p>
 <p>.babelrc</p>
 <pre><code class="lang-json">{
   <span class="hljs-string">&quot;presets&quot;</span>: [<span class="hljs-string">&quot;es2015&quot;</span>, <span class="hljs-string">&quot;stage-0&quot;</span>, <span class="hljs-string">&quot;stage-2&quot;</span>],
@@ -486,8 +486,8 @@ exclude: <span class="hljs-regexp">/^index\.html$/</span>
   <span class="hljs-string">&quot;plugins&quot;</span>: [<span class="hljs-string">&quot;vue&quot;</span>]
 }
 </code></pre>
-<h2 id="&#x6700;&#x7EC8;&#x6587;&#x4EF6;">&#x6700;&#x7EC8;&#x6587;&#x4EF6;</h2>
-<p>&#x989D;&#x5916;&#x7684;&#x8865;&#x4E0A; use&#x3001;hash&#x3001;clean&#x3001;sourceMap &#x53C2;&#x6570;&#xFF0C;&#x6700;&#x7EC8;&#x914D;&#x7F6E;&#x5C06;&#x539F;&#x5148;&#x6570;&#x4E2A;&#x6587;&#x4EF6;&#x4E0A;&#x767E;&#x884C;&#x7684;&#x914D;&#x7F6E;&#x7B80;&#x5316;&#x6210;&#x5982;&#x4E0B;&#x914D;&#x7F6E;</p>
+<h2 id="final-configuration">Final configuration</h2>
+<p>Finally add <code>use</code>, <code>hash</code>, <code>clean</code> and <code>sourceMap</code>, and you&apos;ll get a much simpler configuration that used to be made up of up to a hundred lines of configs across multiple files</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;path&apos;</span>)
 <span class="hljs-keyword">var</span> cooking = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;cooking&apos;</span>)
 
@@ -514,7 +514,7 @@ cooking.set({
 
 <span class="hljs-built_in">module</span>.exports = cooking.resolve()
 </code></pre>
-<p>&#x540C;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x4E0A;&#x6D4B;&#x8BD5;&#x7684;&#x8BDD;&#xFF0C;package.json &#x4E2D;&#x7684;&#x4F9D;&#x8D56;&#x53EF;&#x4EE5;&#x6E05;&#x7406;&#x4E0B;&#x4E86;</p>
+<p>Meanwhile, if testing is unnecessary, the dependencies inside package.json can be purged</p>
 <pre><code class="lang-json">{
   <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;test-vue&quot;</span>,
   <span class="hljs-string">&quot;version&quot;</span>: <span class="hljs-string">&quot;0.0.0&quot;</span>,

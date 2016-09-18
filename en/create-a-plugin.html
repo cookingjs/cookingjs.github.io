@@ -65,7 +65,7 @@
         data-chapter-title="如何写插件"
         data-filepath="create-a-plugin.md"
         data-basepath="."
-        data-revision="Tue Sep 13 2016 18:54:39 GMT+0800 (CST)"
+        data-revision="Sun Sep 18 2016 11:52:34 GMT+0800 (CST)"
         data-innerlanguage="en">
     
 
@@ -374,29 +374,29 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="&#x5982;&#x4F55;&#x5199;&#x63D2;&#x4EF6;">&#x5982;&#x4F55;&#x5199;&#x63D2;&#x4EF6;</h1>
-<p>cooking &#x7684;&#x63D2;&#x4EF6;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x63D0;&#x4F9B;&#x6269;&#x5C55;&#x914D;&#x7F6E;&#x548C;&#x4F9D;&#x8D56;&#x3002;&#x4E0D;&#x540C;&#x63D2;&#x4EF6;&#x6269;&#x5C55;&#x7684;&#x914D;&#x7F6E;&#x5E94;&#x8BE5;&#x662F;<strong>&#x72EC;&#x7ACB;&#x7684;&#xFF0C;&#x4E92;&#x4E0D;&#x5E72;&#x6270;</strong>&#x3002;&#x914D;&#x7F6E;&#x5728; <code>extends</code> &#x5185;&#x7684;&#x63D2;&#x4EF6;&#x4F1A;&#x6309;&#x7167;&#x4ECE;&#x5DE6;&#x5F80;&#x53F3;&#x7684;&#x987A;&#x5E8F;&#x4F9D;&#x6B21;&#x6267;&#x884C;&#x88C5;&#x914D;&#x6240;&#x63D0;&#x4F9B;&#x7684;&#x914D;&#x7F6E;&#xFF1B;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#xFF0C;&#x4F1A;&#x53BB;&#x4F7F;&#x7528;&#x63D2;&#x4EF6;&#x63D0;&#x4F9B;&#x7684;&#x4F9D;&#x8D56;&#x3002;</p>
-<p>&#x4E3B;&#x4F53;&#x90E8;&#x5206;&#x5982;&#x4E0B;</p>
+                        <h1 id="how-to-write-a-plugin">How to write a plugin</h1>
+<p>Essentially cooking&apos;s plugins provide extended configurations and dependencies. Extended configurations by different plugins should be <strong>independent and not interfering with each other</strong>. Plugins inside <code>extends</code> are executed one by one by their appearing order, and the extended dependencies they provide will be used in runtime.</p>
+<p>The main part is as follows</p>
 <pre><code class="lang-javascript"><span class="hljs-comment">/**
- * @param  {object} cooking - &#x8BE5;&#x53C2;&#x6570;&#x63D0;&#x4F9B; add, remove _userConfig &#x548C; config
- * @param  {*} options - &#x652F;&#x6301;&#x81EA;&#x5B9A;&#x4E49;&#x53C2;&#x6570;
+ * @param  {object} cooking - provides add, remove _userConfig and config
+ * @param  {*} options - customized parameters supported
  */</span>
 <span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">cooking, options</span>) </span>{
   <span class="hljs-comment">// do it</span>
 };
 </code></pre>
-<h2 id="&#x89C4;&#x5B9A;">&#x89C4;&#x5B9A;</h2>
+<h2 id="regulations">Regulations</h2>
 <ul>
-<li>&#x4E0D;&#x540C;&#x63D2;&#x4EF6;&#x6269;&#x5C55;&#x7684;&#x914D;&#x7F6E;&#x5E94;&#x8BE5;&#x662F;<strong>&#x72EC;&#x7ACB;&#x7684;&#xFF0C;&#x4E92;&#x4E0D;&#x5E72;&#x6270;</strong></li>
-<li>&#x63D2;&#x4EF6;&#x9879;&#x76EE;&#x7528;<strong> cooking-* </strong> <sup><a href="#fn_1" id="reffn_1">1</a></sup>&#x7684;&#x547D;&#x540D;</li>
+<li>Extended configurations by different plugins should be <strong>independent and not interfering with each other</strong></li>
+<li>Name your plugin <strong> cooking-* </strong> <sup><a href="#fn_1" id="reffn_1">1</a></sup></li>
 </ul>
-<h2 id="&#x53C2;&#x6570;">&#x53C2;&#x6570;</h2>
+<h2 id="parameters">Parameters</h2>
 <h3 id="cooking"><code>cooking</code></h3>
-<p>&#x63D0;&#x4F9B;&#x7684; add &#x4E0E; remove &#x4E0E;<a href="nodejs-api.html">&#x4E4B;&#x524D;&#x4ECB;&#x7ECD;</a>&#x7684;&#x4E00;&#x81F4;&#xFF0C;config &#x5F53;&#x524D;&#x7684; webpack &#x914D;&#x7F6E;&#x5185;&#x5BB9;&#xFF0C;&#x800C; _userConfig &#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x7528;&#x6237;&#x914D;&#x7F6E;&#x7684;&#x5185;&#x5BB9;&#x3002;&#x4F8B;&#x5982;&#x4E00;&#x4E2A; vue &#x63D2;&#x4EF6;&#x7684;&#x4E3B;&#x8981;&#x4EE3;&#x7801;</p>
+<p><code>add</code> and <code>remove</code> are the same as what we <a href="nodejs-api.html">introduced before</a>. <code>config</code> specifies the current webpack configuration, while <code>_userConfig</code> gets the configuration of a user. For a vue plugin, you can write</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> cssLoader = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./css-loader&apos;</span>)
 
 <span class="hljs-comment">/**
- * @param  {object} cooking - provide add, remove, config method
+ * @param  {object} cooking - provides add, remove and config
  * @param  {object} [options]
  */</span>
 <span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">cooking</span>) </span>{
@@ -426,10 +426,10 @@
   }
 }
 </code></pre>
-<h3 id="options">options</h3>
-<p>&#x81EA;&#x5B9A;&#x4E49;&#x914D;&#x7F6E;&#x53C2;&#x6570;&#xFF0C;&#x53C2;&#x8003; <a href="https://github.com/cookingjs/cooking-postcss" target="_blank">cooking-postcss</a></p>
-<h2 id="&#x4F9D;&#x8D56;">&#x4F9D;&#x8D56;</h2>
-<p>&#x6240;&#x9700;&#x4F9D;&#x8D56;&#x914D;&#x7F6E;&#x5728; package.json &#x7684; <code>dependencies</code> &#x5185;</p>
+<h3 id="options">Options</h3>
+<p>For custom configuring options, please refer to <a href="https://github.com/cookingjs/cooking-postcss" target="_blank">cooking-postcss</a></p>
+<h2 id="dependencies">Dependencies</h2>
+<p>Include all dependencies inside <code>dependencies</code> of package.json </p>
 <pre><code class="lang-json">{
   <span class="hljs-string">&quot;dependencies&quot;</span>: {
     <span class="hljs-string">&quot;vue&quot;</span>: <span class="hljs-string">&quot;^1.0.21&quot;</span>,
@@ -442,13 +442,13 @@
   }
 }
 </code></pre>
-<h2 id="&#x751F;&#x6210;&#x63D2;&#x4EF6;&#x9879;&#x76EE;">&#x751F;&#x6210;&#x63D2;&#x4EF6;&#x9879;&#x76EE;</h2>
-<p>&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x4E86;&#x5199;&#x63D2;&#x4EF6;&#x7684;&#x811A;&#x624B;&#x67B6;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x63D2;&#x4EF6;&#x9879;&#x76EE;</p>
+<h2 id="scaffold-a-plugin">Scaffold a plugin</h2>
+<p>You can initiate a plugin using our scaffold</p>
 <pre><code class="lang-bash">$ cooking init plugin
 </code></pre>
 <hr>
 <blockquote id="fn_1">
-<sup>1</sup>. cooking &#x641C;&#x7D22;&#x63D2;&#x4EF6;&#x65F6;&#x4F1A;&#x81EA;&#x52A8;&#x5339;&#x914D;&#x524D;&#x7F00;&#x4E3A; cooking- &#x7684;&#x6A21;&#x5757;<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#x21A9;</a>
+<sup>1</sup>. cooking automatically matches plugins prefixed with <code>cooking-</code><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#x21A9;</a>
 </blockquote>
 
                     
