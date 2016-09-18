@@ -30,7 +30,7 @@ cooking test [...]
 这里以 karma 的使用举例。首先安装 `cooking-karma` 插件，当然内置的依赖并不一定满足你的所有需求，没有提供的需要你自己手动安装。
 
 ### 写 karma 测试
-如果你熟悉 karma 的命令行使用方式的话，会知道可以通过执行 init 的指令创建配置文件，当然你可以通过 cooking 的脚手架提供的配置文件。
+如果你熟悉 karma 的命令行使用方式的话，会知道可以通过执行 init 的指令创建配置文件，当然你可以使用 cooking 的脚手架提供的配置文件。
 ```shell
 cooking test karma init
 ```

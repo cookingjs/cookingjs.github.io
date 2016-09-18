@@ -37,8 +37,8 @@ cooking 包装了一些 webpack 配置项，所提供的配置参数满足多数
 ## template
 HTML 模板文件，使用 [html-webpack-plugin](https://github.com/ampedandwired/html-webpack-plugin) 生成。接受 Boolean|String|Object 类型
 ```javascript
-{
   // 自动生成一个 index.html 文件
+{
   template: true
 }
 
@@ -90,7 +90,7 @@ HTML 模板文件，使用 [html-webpack-plugin](https://github.com/ampedandwire
 ## devServer
 内置了一个 [webpack-dev-server](http://webpack.github.io/docs/webpack-dev-server.html) 方便进行 Web App 开发。配置参数与其基本一致。不同 webpack 的 API 版本略有差异。
 ```javascript
-// 开启默认配置的 dev Server，浏览器访问 http://localhost:8080
+// 开启默认配置的 devServer，浏览器访问 http://localhost:8080
 {
   devServer: true
 }
@@ -182,7 +182,7 @@ HTML 模板文件，使用 [html-webpack-plugin](https://github.com/ampedandwire
 ```
 
 ## format
-可指定模块的输出类型。接受 amd|cjs|umd|var，其中 cjs 会被翻译成  webpack 的 commonjs2
+可指定模块的输出类型。接受 amd|cjs|umd|var，其中 cjs 会被翻译成 webpack 的 commonjs2
 ```javascript
 {
   format: 'var'
@@ -224,16 +224,16 @@ webpack 的 [chunk](http://webpack.github.io/docs/list-of-plugins.html#commonsch
   chunk: {
     'chunk-vendor': {
       name: 'commons', // 不指定默认使用键名
-      // (the commons chunk name)
+      // (common chunk name)
 
       filename: 'commons.js', // 不指定默认根据键名生成（生产模式下带 hash）
-      // (the filename of the commons chunk)
+      // (filename of the common chunk)
 
       // minChunks: 3,
-      // (Modules must be shared between 3 entries)
+      // (modules must be shared among at least 3 entries)
 
       // chunks: ['pageA', 'pageB'],
-      // (Only use these entries)
+      // (only use these entries)
     }
   }
 }
@@ -277,7 +277,11 @@ cooking 默认只提供了 Babel 和 基本 loader，如果我们想开发 vue �
 ```
 
 支持指定插件的版本
-extends: ['vue@0.1.4']
+```javascript
+{
+  extends: ['vue@0.1.4']
+}
+```
 
 
 ## alias (1.0)
@@ -344,6 +348,6 @@ webpack 的 externals
 
 -------------
 
-[^1]: 多数情况下我们会指定一个目录例如`fe.project`为部署目录，输出文件会拷贝到该目录下。如果部署 `fe.project` 目录，域名指向 `fs.project/dist/index.html` 文件，那么 `app.js` 相对于域名的路径就变成了 `/dist/app.js`，所以配置 **publicPath** 的作用就在于此。同时也可以把它配制成一个 CDN 路径。如果我们把 `dist` 当作部署目录，域名指向 `dist/index.html` 文件，那么 `app.js` 的路径就是 `/app.js` 就把 publicPath 设置成 `/` 即可。
+[^1]: 多数情况下我们会指定一个目录例如`fe.project`为部署目录，输出文件会拷贝到该目录下。如果部署 `fe.project` 目录，域名指向 `fe.project/dist/index.html` 文件，那么 `app.js` 相对于域名的路径就变成了 `/dist/app.js`，所以配置 **publicPath** 的作用就在于此。同时也可以把它配置成一个 CDN 路径。如果我们把 `dist` 当作部署目录，域名指向 `dist/index.html` 文件，那么 `app.js` 的路径就是 `/app.js`，把 publicPath 设置成 `/` 即可。
 [^2]: 更多设置项参考 [cooking-postcss](https://github.com/cookingjs/cooking-postcss#readme) 插件文档
 

@@ -1,6 +1,6 @@
 # 一些问题
 
-#### 用 Lint 是给出的提示是 Warn 而不是 Error？
+#### 用 Lint 时给出的提示是 Warn 而不是 Error？
 
 ESLint 默认是触发 Error，但这将会打断 webpack 的 build[^1]（至少我不希望如此），解决方法是去掉的 NoErrorsPlugin，然而这样又不能保证构建出错不自动中断；另一种方法是把 ESLint 触发 Error 改成 Warn。
 ```javascript
@@ -79,7 +79,7 @@ $ cooking watch -c build/webpack.dev.conf.js
 -------------
 [^1]: https://github.com/MoOx/eslint-loader/issues/23
 
-[^2]: cooking 增加了一下 node require 的路径规则，查找顺序先从用户目录查找依赖，再到 cooking 目录下查找。
+[^2]: cooking 增加了一些 node require 的路径规则，查找顺序先从用户目录查找依赖，再到 cooking 目录下查找。
 
 [^3]: http://stackoverflow.com/questions/29883534/webpack-node-modules-css-index-js-didnt-return-a-function
 

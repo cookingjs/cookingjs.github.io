@@ -1,31 +1,31 @@
-# 如何写插件
+# How to write a plugin
 
-cooking 的插件本质上是提供扩展配置和依赖。不同插件扩展的配置应该是**独立的，互不干扰**。配置在 `extends` 内的插件会按照从左往右的顺序依次执行装配所提供的配置；在运行时，会去使用插件提供的依赖。
+Essentially cooking's plugins provide extended configurations and dependencies. Extended configurations by different plugins should be **independent and not interfering with each other**. Plugins inside `extends` are executed one by one by their appearing order, and the extended dependencies they provide will be used in runtime.
 
-主体部分如下
+The main part is as follows
 
 ```javascript
 /**
- * @param  {object} cooking - 该参数提供 add, remove _userConfig 和 config
- * @param  {*} options - 支持自定义参数
+ * @param  {object} cooking - provides add, remove _userConfig and config
+ * @param  {*} options - customized parameters supported
  */
 module.exports = function (cooking, options) {
   // do it
 };
 ```
 
-## 规定
-- 不同插件扩展的配置应该是**独立的，互不干扰**
-- 插件项目用** cooking-* ** [^1]的命名
+## Regulations
+- Extended configurations by different plugins should be **independent and not interfering with each other**
+- Name your plugin ** cooking-* ** [^1]
 
-## 参数
+## Parameters
 ### `cooking`
-提供的 add 与 remove 与[之前介绍](nodejs-api.md)的一致，config 当前的 webpack 配置内容，而 _userConfig 可以获取用户配置的内容。例如一个 vue 插件的主要代码
+`add` and `remove` are the same as what we [introduced before](nodejs-api.md). `config` specifies the current webpack configuration, while `_userConfig` gets the configuration of a user. For a vue plugin, you can write
 ```javascript
 var cssLoader = require('./css-loader')
 
 /**
- * @param  {object} cooking - provide add, remove, config method
+ * @param  {object} cooking - provides add, remove and config
  * @param  {object} [options]
  */
 module.exports = function (cooking) {
@@ -56,11 +56,11 @@ module.exports = function (cooking) {
 }
 ```
 
-### options
-自定义配置参数，参考 [cooking-postcss](https://github.com/cookingjs/cooking-postcss)
+### Options
+For custom configuring options, please refer to [cooking-postcss](https://github.com/cookingjs/cooking-postcss)
 
-## 依赖
-所需依赖配置在 package.json 的 `dependencies` 内
+## Dependencies
+Include all dependencies inside `dependencies` of package.json 
 ```json
 {
   "dependencies": {
@@ -76,11 +76,11 @@ module.exports = function (cooking) {
 ```
 
 
-## 生成插件项目
-我们提供了写插件的脚手架，可以直接初始化一个插件项目
+## Scaffold a plugin
+You can initiate a plugin using our scaffold
 ```bash
 $ cooking init plugin
 ```
 
 -------------
-[^1]: cooking 搜索插件时会自动匹配前缀为 cooking- 的模块
+[^1]: cooking automatically matches plugins prefixed with `cooking-`

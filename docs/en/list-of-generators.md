@@ -1,17 +1,16 @@
-# 脚手架
+# Generators
 
-升级脚手架的方式是先要卸载掉原有的，再安装新的
+To update a generator
 ```shell
 cooking remove vue -t
 cooking import vue -t
 ```
 
-## 项目类
-- [vue](https://github.com/cookingjs/slush-cooking-vue) - 基础的 vue 项目的脚手架
-- [vue2](https://github.com/cookingjs/slush-cooking-vue2) - 基础的 vue2.0 项目的脚手架
-- [react](https://github.com/cookingjs/slush-cooking-react) - 基础的 react 项目的脚手架
-- [static](https://github.com/cookingjs/slush-cooking-static) - 基础页面项目
+## Project generators
+- [vue](https://github.com/cookingjs/slush-cooking-vue) - a generator for vue projects, compatible with both Vue 1 and 2
+- [react](https://github.com/cookingjs/slush-cooking-react) - a generator for react projects
+- [static](https://github.com/cookingjs/slush-cooking-static) - a generator for static projects
 
-## 工具类
-- [plugin](https://github.com/cookingjs/slush-cooking-plugin) - 开发 cooking 插件的脚手架
-- [generator](https://github.com/cookingjs/slush-cooking-generator) - 开发 cooking 脚手架的脚手架
+## Tool generators
+- [plugin](https://github.com/cookingjs/slush-cooking-plugin) - a generator for developing cooking plugins
+- [generator](https://github.com/cookingjs/slush-cooking-generator) - a generator for developing cooking generators

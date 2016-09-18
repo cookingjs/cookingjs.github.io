@@ -54,7 +54,7 @@ $ cooking watch
 
 - -c --config <configfile>
 
-默认读取 `cooking.conf.js` 配置也指定配置文件
+默认读取 `cooking.conf.js` 配置，也可指定配置文件
 ```bash
 $ cooking watch -c webpack.config.js
 ```
@@ -72,7 +72,7 @@ $ cooking build
 
 - -c --config <configfile>
 
-默认读取 `cooking.conf.js` 配置也指定配置文件
+默认读取 `cooking.conf.js` 配置，也可指定配置文件
 ```bash
 $ cooking build -c webpack.config.js
 ```

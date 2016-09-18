@@ -1,9 +1,9 @@
-# 迁移指南
+# Migration guide
 
-以 vue-cli 创建的项目举例。
+In this guide we will migrate a project created by vue-cli.
 
-## 开始
-新建一个 cooking.conf.js 文件，并添加基本配置
+## Preparation
+Create cooking.conf.js, and add some configs
 ```javascript
 var cooking = require('cooking')
 
@@ -15,7 +15,7 @@ module.exports = cooking.resolve()
 ```
 
 ## entry
-同 webapck entry 直接拷贝进来
+Just copy what is inside webpack entry
 ```javascript
 {
   entry: {
@@ -25,7 +25,7 @@ module.exports = cooking.resolve()
 ```
 
 ## output
-默认输出路径为 `./dist`，publicPath 为 `/dist/`，如果一致可不设置
+The default output path and publicPath are both `./dist`, so you can omit them if that's your case
 ```javascript
 {
   publicPath: '/dist/',
@@ -35,7 +35,7 @@ module.exports = cooking.resolve()
 ```
 
 ## loader
-cooking 默认提供了 `css`、`html`、`images`、`json` 的 loader，因此 `build/webpack.base.conf.js` 中的 loader 基本包含，额外的需要 vue-loader 和 eslint-loader，只需在配置中增加插件
+By default cooking provides loaders for `css`, `html`, `images` and `json`. They basically cover all loaders inside `build/webpack.base.conf.js`. You just need to add plugins for the additional vue-loader and eslint-loader
 ```javascript
 {
   extends: ['vue', 'lint']
@@ -43,7 +43,7 @@ cooking 默认提供了 `css`、`html`、`images`、`json` 的 loader，因此 `
 ```
 
 ## resolve
-alias 需要自己配置，默认不提供
+You need to configure alias yourself. No default is provided
 ```javascript
 {
   alias: {
@@ -55,16 +55,16 @@ alias 需要自己配置，默认不提供
 ```
 
 ## dev server
-cooking 提供的 dev server 为 webpack 提供的 webpack-dev-server，配置参数[参考文档](http://webpack.github.io/docs/webpack-dev-server.html)，可直接使用默认配置
+cooking uses webpack's webpack-dev-server as its dev server, so you can use the default configuration. For more detail please refer to the [documentation](http://webpack.github.io/docs/webpack-dev-server.html)
 ```javascript
 {
   devServer: true
 }
 
-// 以下是默认配置
+// default configuration
 {
   devServer: {
-   // 需要注意的是这里的 publicPath 会替换掉上面配置的 publicPath，与官方文档相反
+   // note that publicPath here will overwrite what you specified above. This is different from webpack's webpack-dev-server
     publicPath: '/',
     port: 8080,
     hot: true,
@@ -79,7 +79,7 @@ cooking 提供的 dev server 为 webpack 提供的 webpack-dev-server，配置�
 ```
 
 ## ExtractTextPlugin
-只需配置 extractCSS 参数即可
+Just specify extractCSS
 ```javascript
 {
   extractCSS: true
@@ -87,19 +87,19 @@ cooking 提供的 dev server 为 webpack 提供的 webpack-dev-server，配置�
 ```
 
 ## HtmlWebpackPlugin
-模板文件如果无特殊配置直接设置文件路径
+For your template file, if no special configuring is needed, simply specify its path
 
 ```javascript
   template: './index.html'
 ```
 
-当需要在模板文件中引入变量时，应写为 `<%= someVariable %>`（详见[官方文档](https://github.com/ampedandwired/html-webpack-plugin/blob/master/migration.md#templating-and-variables)），例如：
+If a template file has variables, it should be written as `<%= someVariable %>` (see [documentation](https://github.com/ampedandwired/html-webpack-plugin/blob/master/migration.md#templating-and-variables)). For example
 ```html
 <title><%= htmlWebpackPlugin.options.title %></title>
 ```
-此外，由于[这个问题](https://github.com/ampedandwired/html-webpack-plugin/issues/223)的存在，还需要做进一步处理才能保证变量被正确解析，目前共有 3 个方案：
-*  方案一（推荐）：将模板文件的后缀名改为 `tpl`，例如模板文件 `index.html` 需改为 `index.tpl`；
-*  方案二：在配置文件的 `loader` 中将该模板文件排除：
+Besides, due to [this problem](https://github.com/ampedandwired/html-webpack-plugin/issues/223), some more measures have to be taken to guarantee the variables being parsed correctly. For now we have 3 plans
+*  Plan A (recommended): change the template's filename extension to `tpl`, e.g. rename `index.html` to `index.tpl`；
+*  Plan B: exclude this template inside `loader` 
 ```javascript
 cooking.add('loader.html', {
   test: /\.html$/,
@@ -107,7 +107,7 @@ cooking.add('loader.html', {
   exclude: /^index\.html$/
 })
 ```
-*  方案三：使用 `underscore-template-loader` 处理该模板文件：
+*  Plan C: use `underscore-template-loader` to handle this template
 ```javascript
 template: {
   'index.html': {
@@ -116,8 +116,8 @@ template: {
 }
 ```
 
-## babel 和 eslint 配置
-推荐做法是在项目目录创建 .babelrc、 .eslintrc 文件
+## babel and eslint configs
+Creating .babelrc and .eslintrc in your project directory is recommended
 
 .babelrc
 ```json
@@ -137,8 +137,8 @@ template: {
 ```
 
 
-## 最终文件
-额外的补上 use、hash、clean、sourceMap 参数，最终配置将原先数个文件上百行的配置简化成如下配置
+## Final configuration
+Finally add `use`, `hash`, `clean` and `sourceMap`, and you'll get a much simpler configuration that used to be made up of up to a hundred lines of configs across multiple files
 
 ```javascript
 var path = require('path')
@@ -168,7 +168,7 @@ cooking.set({
 module.exports = cooking.resolve()
 ```
 
-同时，如果不上测试的话，package.json 中的依赖可以清理下了
+Meanwhile, if testing is unnecessary, the dependencies inside package.json can be purged
 ```json
 {
   "name": "test-vue",

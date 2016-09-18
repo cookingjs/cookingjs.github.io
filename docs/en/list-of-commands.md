@@ -1,6 +1,6 @@
-# 指令
+# Commands
 
-可扩展的指令有
+Extensible commands are
 
-- [test](https://github.com/cookingjs/cooking-test-command) - 测试指令
+- [test](https://github.com/cookingjs/cooking-test-command) - testing command
 
