@@ -3,7 +3,7 @@
 > 更易上手的前端构建工具
 
 - 开始
-  - [介绍](intro.md)
+  - [五分钟上手](intro.md)
   - [例子](example.md)
 - 使用
  - [配置参数](configuration.md)

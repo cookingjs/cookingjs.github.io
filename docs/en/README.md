@@ -3,7 +3,7 @@
 > A front-end build tool that comes handy
 
 - Getting Started
-  - [Introduction](intro.md)
+  - [Get started in 5 minutes](intro.md)
   - [Example](example.md)
 - Guides
  - [Configuration](configuration.md)
