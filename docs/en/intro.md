@@ -62,7 +62,7 @@ cooking.set({
   dist: './dist'
 })
 
-modules.export = cooking.resolve()
+module.exports = cooking.resolve()
 ```
 
 Step 4: run
