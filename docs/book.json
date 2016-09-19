@@ -1,13 +1,16 @@
 {
   "title": "cooking",
   "language": "zh-hans",
-  "plugins": ["toc", "-search", "search-pro", "disqus", "prism", "-highlight"],
+  "plugins": ["toc", "-search", "search-pro", "disqus", "prism", "-highlight", "ga"],
   "pluginsConfig": {
     "search-pro": {
       "cutWordLib": "nodejieba"
     },
     "disqus": {
       "shortName": "cookingjs"
+    },
+    "ga": {
+      "token": "UA-78788645-2"
     }
   }
 }
