@@ -65,7 +65,7 @@
         data-chapter-title="Plugins"
         data-filepath="list-of-plugins.md"
         data-basepath="."
-        data-revision="Mon Sep 19 2016 16:55:58 GMT+0800 (CST)"
+        data-revision="Mon Sep 19 2016 18:53:47 GMT+0800 (CST)"
         data-innerlanguage="en">
     
 
@@ -376,8 +376,10 @@
                     
                         <h1 id="plugins">Plugins</h1>
 <p>To update a plugin</p>
-<pre><code class="lang-shell">cooking remove vue
-cooking import vue
+<pre><code class="lang-shell">cooking update vue
+</code></pre>
+<p>or</p>
+<pre><code class="lang-shell">cooking remove vue &amp;&amp; cooking import vue
 </code></pre>
 <p>By using <a href="configuration.html#extends">extends</a> we can import additional configurations and dependencies. Provided plugins are:</p>
 <ul>

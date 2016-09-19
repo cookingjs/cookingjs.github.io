@@ -65,7 +65,7 @@
         data-chapter-title="配置参数"
         data-filepath="configuration.md"
         data-basepath="."
-        data-revision="Mon Sep 19 2016 16:55:59 GMT+0800 (CST)"
+        data-revision="Mon Sep 19 2016 18:53:47 GMT+0800 (CST)"
         data-innerlanguage="zh-cn">
     
 
@@ -575,6 +575,12 @@
   chunk: <span class="hljs-string">&apos;vendor&apos;</span>
 }
 
+<span class="hljs-comment">// &#x8BBE;&#x7F6E;&#x4E3A; true&#xFF0C;&#x7B49;&#x4EF7;&#x4E8E; https://github.com/vuejs-templates/webpack/blob/dist/template/build/webpack.prod.conf.js#L62-L82</span>
+{
+  entry: <span class="hljs-string">&apos;./src/entry.js&apos;</span>,
+  chunk: <span class="hljs-literal">true</span>
+}
+
 <span class="hljs-comment">// &#x6216;&#x8005;&#x4F20;&#x5165;&#x6570;&#x7EC4;</span>
 {
   entry: {
@@ -658,7 +664,7 @@
 <pre><code class="lang-javascript">{
   postcss: [
     <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;postcss-cssnext&apos;</span>),
-    <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;autoprefixer&apos;</span>)
+    <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;postcss-px2rem&apos;</span>)
   ]
 }
 
@@ -666,7 +672,7 @@
 {
   postcss: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">webpack</span>) </span>{
     <span class="hljs-keyword">return</span> [
-      <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;postcss-salad&apos;</span>)({
+      <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;postcss-import&apos;</span>)({
         features: {
           partialImport: {
             addDependencyTo: webapck
