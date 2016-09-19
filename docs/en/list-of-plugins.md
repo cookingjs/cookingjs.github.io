@@ -2,8 +2,13 @@
 
 To update a plugin
 ```shell
-cooking remove vue
-cooking import vue
+cooking update vue
+```
+
+or
+
+```shell
+cooking remove vue && cooking import vue
 ```
 
 By using [extends](configuration.html#extends) we can import additional configurations and dependencies. Provided plugins are:

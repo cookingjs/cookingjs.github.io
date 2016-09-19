@@ -2,8 +2,12 @@
 
 升级插件的方式
 ```shell
-cooking remove vue
-cooking import vue
+cooking update vue
+```
+
+或者
+```shell
+cooking remove vue && cooking import vue
 ```
 
 通过 [extends](configuration.html#extends) 我们可以引入额外的配置和依赖，目前提供的插件有：

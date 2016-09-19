@@ -209,6 +209,12 @@ webpack 的 [chunk](http://webpack.github.io/docs/list-of-plugins.html#commonsch
   chunk: 'vendor'
 }
 
+// 设置为 true，等价于 https://github.com/vuejs-templates/webpack/blob/dist/template/build/webpack.prod.conf.js#L62-L82
+{
+  entry: './src/entry.js',
+  chunk: true
+}
+
 // 或者传入数组
 {
   entry: {
@@ -310,7 +316,7 @@ webpack 的 externals
 {
   postcss: [
     require('postcss-cssnext'),
-    require('autoprefixer')
+    require('postcss-px2rem')
   ]
 }
 
@@ -318,7 +324,7 @@ webpack 的 externals
 {
   postcss: function(webpack) {
     return [
-      require('postcss-salad')({
+      require('postcss-import')({
         features: {
           partialImport: {
             addDependencyTo: webapck

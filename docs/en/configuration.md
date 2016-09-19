@@ -209,6 +209,12 @@ A simplified configuration for webpack's [chunk](http://webpack.github.io/docs/l
   chunk: 'vendor'
 }
 
+// set true, equal to https://github.com/vuejs-templates/webpack/blob/dist/template/build/webpack.prod.conf.js#L62-L82
+{
+  entry: './src/entry.js',
+  chunk: true
+}
+
 // array supported
 {
   entry: {
@@ -308,8 +314,8 @@ Configures postcss
 ```javascript
 {
   postcss: [
-    require('postcss-cssnext'),
-    require('autoprefixer')
+    require('postcss-salad'),
+    require('postcss-px2rem')
   ]
 }
 
@@ -317,7 +323,7 @@ Configures postcss
 {
   postcss: function(webpack) {
     return [
-      require('postcss-salad')({
+      require('postcss-import')({
         features: {
           partialImport: {
             addDependencyTo: webapck
