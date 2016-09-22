@@ -23,7 +23,7 @@ By using [extends](configuration.html#extends) we can import additional configur
 - [sass](https://github.com/cookingjs/cooking-sass) - sass configuration
 - [less](https://github.com/webjyh/cooking-less) - less configuration by [webjyh](https://github.com/webjyh)
 - [postcss](https://github.com/cookingjs/cooking-postcss)(deprecated in 1.0) - postcss-loader with built-in cssnext
-- [saladcss](https://github.com/cookingjs/cooking-saladcss)(deprecated in 1.0) - a more friendly CSS preprocessor plugin [postcss-salad](http://elemefe.github.io/postcss-salad)
+- [saladcss](https://github.com/cookingjs/cooking-saladcss) - a more friendly CSS preprocessor plugin [postcss-salad](http://elemefe.github.io/postcss-salad)
 
 ## Test
 - [karma](https://github.com/cookingjs/cooking-karma) - karma-related dependencies
