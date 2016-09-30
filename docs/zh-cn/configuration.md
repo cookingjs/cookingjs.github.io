@@ -206,7 +206,7 @@ webpack 的 [chunk](http://webpack.github.io/docs/list-of-plugins.html#commonsch
     vendor: ['vue', 'vue-router']
   },
 
-  chunk: 'vendor'
+  chunk: ['vendor']
 }
 
 // 设置为 true，等价于 https://github.com/vuejs-templates/webpack/blob/dist/template/build/webpack.prod.conf.js#L62-L82

@@ -206,7 +206,7 @@ A simplified configuration for webpack's [chunk](http://webpack.github.io/docs/l
     vendor: ['vue', 'vue-router']
   },
 
-  chunk: 'vendor'
+  chunk: ['vendor']
 }
 
 // set true, equal to https://github.com/vuejs-templates/webpack/blob/dist/template/build/webpack.prod.conf.js#L62-L82
