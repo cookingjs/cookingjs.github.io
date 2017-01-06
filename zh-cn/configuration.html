@@ -65,7 +65,7 @@
         data-chapter-title="配置参数"
         data-filepath="configuration.md"
         data-basepath="."
-        data-revision="Fri Sep 30 2016 17:32:44 GMT+0800 (CST)"
+        data-revision="Fri Jan 06 2017 15:37:19 GMT+0800 (CST)"
         data-innerlanguage="zh-cn">
     
 
@@ -397,6 +397,7 @@
 <li><a href="#externals-10">externals (1.0)</a></li>
 <li><a href="#postcss-10">postcss (1.0)</a></li>
 <li><a href="#minimize-10">minimize (1.0)</a></li>
+<li><a href="#static-10">static (1.0)</a></li>
 </ul>
 <!-- toc stop -->
 <h2 id="entry">entry</h2>
@@ -695,6 +696,14 @@
     js: <span class="hljs-literal">true</span>,
     css: <span class="hljs-literal">true</span>
   }
+}
+</code></pre>
+<h2 id="static-10">static (1.0)</h2>
+<p>&#x9759;&#x6001;&#x8D44;&#x6E90;&#x76EE;&#x5F55;&#xFF0C;&#x4E0D;&#x4F1A;&#x88AB; webapck loader &#x5904;&#x7406;</p>
+<pre><code class="lang-js">{
+  static: <span class="hljs-literal">true</span>, <span class="hljs-comment">// &#x9ED8;&#x8BA4;&#x4E3A; static &#x76EE;&#x5F55;</span>
+  static: <span class="hljs-string">&apos;assets&apos;</span>, <span class="hljs-comment">// &#x81EA;&#x5B9A;&#x4E49;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x76EE;&#x5F55;&#x540D;</span>
+  static: [<span class="hljs-string">&apos;static&apos;</span>, <span class="hljs-string">&apos;docs&apos;</span>] <span class="hljs-comment">// &#x591A;&#x4E2A;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x76EE;&#x5F55;</span>
 }
 </code></pre>
 <hr>

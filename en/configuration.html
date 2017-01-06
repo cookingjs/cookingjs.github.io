@@ -65,7 +65,7 @@
         data-chapter-title="Configuration"
         data-filepath="configuration.md"
         data-basepath="."
-        data-revision="Fri Sep 30 2016 17:32:43 GMT+0800 (CST)"
+        data-revision="Fri Jan 06 2017 15:37:18 GMT+0800 (CST)"
         data-innerlanguage="en">
     
 
@@ -397,6 +397,7 @@
 <li><a href="#externals-10">externals (1.0)</a></li>
 <li><a href="#postcss-10">postcss (1.0)</a></li>
 <li><a href="#minimize-10">minimize (1.0)</a></li>
+<li><a href="#static-10">static (1.0)</a></li>
 </ul>
 <!-- toc stop -->
 <h2 id="entry">entry</h2>
@@ -695,6 +696,14 @@
     js: <span class="hljs-literal">true</span>,
     css: <span class="hljs-literal">true</span>
   }
+}
+</code></pre>
+<h2 id="static-10">static (1.0)</h2>
+<p><a href="https://github.com/vuejs-templates/webpack/blob/master/docs/static.md#real-static-assets" target="_blank">static assets folder</a></p>
+<pre><code class="lang-js">{
+  static: <span class="hljs-literal">true</span>, <span class="hljs-comment">// default using `static` folder</span>
+  static: <span class="hljs-string">&apos;assets&apos;</span>, <span class="hljs-comment">// or you can naming it</span>
+  static: [<span class="hljs-string">&apos;static&apos;</span>, <span class="hljs-string">&apos;docs&apos;</span>] <span class="hljs-comment">// multiple folders</span>
 }
 </code></pre>
 <hr>
