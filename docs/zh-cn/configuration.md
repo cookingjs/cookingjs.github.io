@@ -352,6 +352,17 @@ webpack 的 externals
 }
 ```
 
+## static (1.0)
+静态资源目录，不会被 webapck loader 处理
+
+```js
+{
+  static: true, // 默认为 static 目录
+  static: 'assets', // 自定义静态资源目录名
+  static: ['static', 'docs'] // 多个静态资源目录
+}
+```
+
 -------------
 
 [^1]: 多数情况下我们会指定一个目录例如`fe.project`为部署目录，输出文件会拷贝到该目录下。如果部署 `fe.project` 目录，域名指向 `fe.project/dist/index.html` 文件，那么 `app.js` 相对于域名的路径就变成了 `/dist/app.js`，所以配置 **publicPath** 的作用就在于此。同时也可以把它配置成一个 CDN 路径。如果我们把 `dist` 当作部署目录，域名指向 `dist/index.html` 文件，那么 `app.js` 的路径就是 `/app.js`，把 publicPath 设置成 `/` 即可。

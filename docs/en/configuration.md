@@ -351,6 +351,17 @@ Specify if JS and CSS files are compressed. In production mode, its default valu
 }
 ```
 
+## static (1.0)
+[static assets folder](https://github.com/vuejs-templates/webpack/blob/master/docs/static.md#real-static-assets)
+
+```js
+{
+  static: true, // default using `static` folder
+  static: 'assets', // or you can naming it
+  static: ['static', 'docs'] // multiple folders
+}
+```
+
 -------------
 
 [^1]: In most cases a directory, e.g. `fe.project`, is specified as the deploy directory, and the output files are copied to this directory. But if the domain name is linked to `fe.project/dist/index.html`, then the path of `app.js` relative to the domain name becomes `/dist/app.js`. That's where **publicPath** kicks in. You can also configure it as a CDN path. If `dist` is the deploy directory and the domain name is linked to `dist/index.html`, the path of `app.js` is `/app.js`. In this case, simply specify publicPath as `/` and you are good to go.
