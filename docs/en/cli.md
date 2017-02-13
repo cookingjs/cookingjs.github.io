@@ -37,7 +37,7 @@ For now cooking supports
 Creates a project and runs the generator
 ```bash
 # create my-project and run vue generator
-$ cooking my-project vue
+$ cooking create my-project vue
 ```
 
 ### `init [generator-name]`

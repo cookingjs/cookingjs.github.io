@@ -36,7 +36,7 @@ $ cooking config <option> [value]
 创建项目目录并执行脚手架
 ```bash
 # 创建一个 my-project 目录并运行 vue 的脚手架
-$ cooking my-project vue
+$ cooking create my-project vue
 ```
 
 ### `init [generator-name]`
