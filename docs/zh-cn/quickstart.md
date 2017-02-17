@@ -5,12 +5,12 @@
 **只能使用 NPM 3 及其以上的版本**
 
 ```bash
-$ npm i cooking -g
+$ npm i cooking-cli -g
 ```
 
 如果国内速度慢的话可以选择使用国内镜像，例如 taobao 镜像
 ```bash
-$ npm i cooking -g --registry=https://registry.npm.taobao.org
+$ npm i cooking-cli -g --registry=https://registry.npm.taobao.org
 ```
 
 # 创建第一个项目 (Vue 举例)
